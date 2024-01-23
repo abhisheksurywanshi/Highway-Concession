@@ -1,0 +1,1176 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Automation Report</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">TCM</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Jan 23, 2024 02:27:14 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">DatabaseConnectivity</p>
+            <p class="text-sm">
+              <span>2:27:14 PM</span> / <span>00:00:01:529</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">DatabaseConnectivity</h5>
+<span class='badge badge-success'>01.23.2024 2:27:14 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:16 PM</span>
+<span class='badge badge-default'>00:00:01:529</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Database Connected Successfully
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          Is_LSDU:N
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          Exempt Types and Wim Sub Type Noted....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          lane ip:10.10.1.87 Port 5000
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:27:15 PM</span> / <span>00:00:00:770</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:16 PM</span>
+<span class='badge badge-default'>00:00:00:770</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          toll name: Sasthan| 
+lane_ip_address :10.10.1.87| 
+lane_id :1031011| 
+avc_com :10| 
+exit_avc_com_no :14| 
+lane_alias :SS01| 
+wim_com :17| 
+IsLSDU:N| 
+Is_ETC_Popup:N| 
+Is_ManualInsertWeight:null| 
+is_0_Weight Insert:null| 
+is_Weight_Delete:NEW| 
+In_Out:I
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          AVC_COM Pairing is: COM11
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          EXIT_AVC_COM Pairing is: COM15
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          WIM_COM Pairing is: COM16
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Wim Available  parameter is: Y
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          PaymentTypeIsReference TextBoxes Mapping:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          Payment Type: WALLET, Is reference: Y
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          Payment Type: CARD, Is reference: Y
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:16 PM</td>
+        <td>
+          Is_Card_ref:N
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">COM_Setup</p>
+            <p class="text-sm">
+              <span>2:27:15 PM</span> / <span>00:00:00:033</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">COM_Setup</h5>
+<span class='badge badge-success'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-default'>00:00:00:033</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          EXIT_AVC_COM Connected....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          WIM_COM Connected....
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">KeyMappingg</p>
+            <p class="text-sm">
+              <span>2:27:15 PM</span> / <span>00:00:00:169</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">KeyMappingg</h5>
+<span class='badge badge-success'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-default'>00:00:00:169</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Schedual Vehicle KeyMapping:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 112, Vehicle Alias: CAR
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 113, Vehicle Alias: LCV
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 114, Vehicle Alias: BUS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 115, Vehicle Alias: TRUCK
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 116, Vehicle Alias: MAV 3
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 117, Vehicle Alias: MAV 4
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 118, Vehicle Alias: MAV 5
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 119, Vehicle Alias: MAV 6
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 120, Vehicle Alias: OSV
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Non Schedual Vehicle KeyMapping:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 44, Value: BIKE
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 46, Value: AUTO
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 47, Value: TRACTOR
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Available Exempt Class Code:[04, 05, 07, 10, 11, 12, 13, 14, 17]
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Key ASCII Value:123
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Other Cash MOP KeyMapping:
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          ASCII Key: 121, Value: SJ
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          {11={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 12={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 13={EMERGENCY=Y, AMBULANCE=Y, ARMY=Y, OTHERS=Y, BARCODE EXEMPT=Y, MAINT. VEHICLE=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, RFID EXEMPT=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 14={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 04={EMERGENCY=N, ARMY=N, BARCODE EXEMPT=N, LOCAL EXEMPT-COMMERCIAL-SMART CARD=N, LOCAL EXEMPT-PERSONAL-SMART CARD=N, AMBULANCE=N, OTHERS=N, MAINT. VEHICLE=N, RFID EXEMPT=N, VIP=N, GOVERNMENT=N, POLICE=N, SYSTEM ISSUE=N},
+ 05={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 17={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 07={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y},
+ 10={EMERGENCY=Y, ARMY=Y, BARCODE EXEMPT=Y, LOCAL EXEMPT-COMMERCIAL-SMART CARD=Y, LOCAL EXEMPT-PERSONAL-SMART CARD=Y, AMBULANCE=Y, OTHERS=Y, MAINT. VEHICLE=Y, RFID EXEMPT=Y, VIP=Y, GOVERNMENT=Y, POLICE=Y, SYSTEM ISSUE=Y}}
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">GetExemptType</p>
+            <p class="text-sm">
+              <span>2:27:15 PM</span> / <span>00:00:00:032</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">GetExemptType</h5>
+<span class='badge badge-success'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-default'>00:00:00:032</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of CAR:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of LCV:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of BUS:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of TRUCK:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of MAV 3:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of MAV 4:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of MAV 5:12
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of MAV 6:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          Exempt Type of OSV:13
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">TollWimClassDetails</p>
+            <p class="text-sm">
+              <span>2:27:15 PM</span> / <span>00:00:00:035</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TollWimClassDetails</h5>
+<span class='badge badge-success'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:15 PM</span>
+<span class='badge badge-default'>00:00:00:035</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          CAR--having weight from-- 0 to 7875
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          LCV--having weight from-- 7501 to 12600
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          BUS--having weight from-- 11991 to 18900
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          TRUCK--having weight from-- 11991 to 18900
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          MAV 3 Axle--having weight from-- 18501 to 31500
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          MAV 4 Axle--having weight from-- 28001 to 36750
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          MAV 5 Axle--having weight from-- 39501 to 44100
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          MAV 6 Axle--having weight from-- 49001 to 57750
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:15 PM</td>
+        <td>
+          OSV--having weight from-- 55001 to 64050
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">login</p>
+            <p class="text-sm">
+              <span>2:27:23 PM</span> / <span>00:00:26:211</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">login</h5>
+<span class='badge badge-success'>01.23.2024 2:27:23 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:49 PM</span>
+<span class='badge badge-default'>00:00:26:211</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>2:27:42 PM</td>
+        <td>
+          Application Started....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:44 PM</td>
+        <td>
+          after click login
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:48 PM</td>
+        <td>
+          Move to the current window....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:48 PM</td>
+        <td>
+          Move to the current window....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:49 PM</td>
+        <td>
+          ETC IP port connecting
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:27:49 PM</td>
+        <td>
+          Login Successfully....
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:27:49 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:27:49 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:49 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:27:53 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:27:53 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:53 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:27:58 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:27:58 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:27:58 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:02 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:02 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:02 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="12"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:06 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:06 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:06 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="13"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:24 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:24 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:24 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="14"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:28 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:28 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:28 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="15"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:32 PM</span> / <span>00:00:00:001</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:32 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:32 PM</span>
+<span class='badge badge-default'>00:00:00:001</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="16"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:40 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:40 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:40 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="17"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">getTollInfo</p>
+            <p class="text-sm">
+              <span>2:28:48 PM</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">getTollInfo</h5>
+<span class='badge badge-success'>01.23.2024 2:28:48 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:48 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="18"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">close</p>
+            <p class="text-sm">
+              <span>2:28:52 PM</span> / <span>00:00:05:560</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">close</h5>
+<span class='badge badge-success'>01.23.2024 2:28:52 PM</span>
+<span class='badge badge-danger'>01.23.2024 2:28:57 PM</span>
+<span class='badge badge-default'>00:00:05:560</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=18</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:28:55 PM</td>
+        <td>
+          Move to the current window....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:28:55 PM</td>
+        <td>
+          Move to the current window....
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>2:28:57 PM</td>
+        <td>
+          Move to the current window....
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Jan 23, 2024 02:27:14 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Jan 23, 2024 02:29:01 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>18</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'>
+<b>18</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='6%'><b>4</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>57</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"DatabaseConnectivity":1.529,"getTollInfo":0.77,"COM_Setup":0.033,"KeyMappingg":0.169,"GetExemptType":0.032,"TollWimClassDetails":0.035,"login":26.211,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0,"getTollInfo":0.001,"getTollInfo":0,"getTollInfo":0,"close":5.56
+};
+</script>
+<div class="row">
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 18,
+failParent: 0,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 4,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 57
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
