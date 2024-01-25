@@ -51,8 +51,8 @@ public class Transaction extends BaseClass
 //		
 //		LastTransaction= DefaultTransactionNumber.getDefaultTransationNumber();
 //		System.out.println(":::::::::c "+LastTransaction);
-//		for(int i=1;i<=10;i++)
-//		{
+		for(int i=1;i<=10;i++)
+		{
 //
 //		ManualWeight.manualWeightTransaction(BaseClass.randomGenerator(0, 61001));
 //		SequentialWeightTransaction.SequentialWeightTransaction();
@@ -65,21 +65,21 @@ public class Transaction extends BaseClass
 //		ManualWeight.OverWeightLogic(Vclass, 50000);
 //		System.out.println("DDDD");
 //			WeightInsert.insertWeight();
-			CashTransaction.randomCashTransaction();		
+//			CashTransaction.randomCashTransaction();		
 //			ExemptTransaction.randomExempt(); 
 //			FreeConvoy.freeConvoy(1);
 			
 			ExemptTransaction.randomExempt(); 
 //			Violation.randomViolation();		
 //			Violation.randomViolation();			
-		    GetTag g=new GetTag();
+//		    GetTag g=new GetTag();
 //		    WeightInsert.insertWeight();
-		    g.getTagData();
+//		    g.getTagData();
 //		    PaidConvoy.paidConvoy(3);
-		    NSV.getNonSchedualVehicleKey();
+//		    NSV.getNonSchedualVehicleKey();
 //		    Tow.tow(3);
 		    
-//	}
+	}
 		
 		
 //		driver.findElementByAccessibilityId("txtVehicleNo").sendKeys("MH01"+"AA");	
