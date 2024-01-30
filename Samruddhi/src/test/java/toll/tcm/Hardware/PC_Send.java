@@ -6,7 +6,7 @@ import toll.tcm.testCases.*;
 
 public class PC_Send extends BaseClass{
 
-	public PC_Send() throws IOException 
+	public PC_Send() throws IOException, InterruptedException 
 	{
 		hexData = "02";         
         dataBytes = hexStringToByteArray(hexData);
@@ -29,6 +29,7 @@ public class PC_Send extends BaseClass{
 		hexData = "03";         
         dataBytes = hexStringToByteArray(hexData);
         outputStreamForExitAVC.write(dataBytes);
+      
 	}
 
 }

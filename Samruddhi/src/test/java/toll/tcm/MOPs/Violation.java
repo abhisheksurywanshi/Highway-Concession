@@ -100,7 +100,9 @@ public class Violation extends BaseClass
         
         
    	   
-        COM_Setup.COMAVCSetup99();
+//        COM_Setup.COMAVCSetup99();
+        outputStreamForAVC.write(toReturnAVCClass.getBytes());
+    	logger.info(getdata.getAVCData(toReturnAVCClass)+" :outputstream ");
 //		outputStreamForAVC.write(toReturnAVCClass.getBytes());
 		hexData = "03";         
         dataBytes = hexStringToByteArray(hexData);
@@ -135,7 +137,7 @@ public class Violation extends BaseClass
 //        	
 //        }
 //        ExplicitWait(By.name("Vehicle pending in queue - 1"));
-//		ImageVerification i =new ImageVerification();
+		ImageVerification i =new ImageVerification();
 		String parent=driver.getWindowHandle();
 		mainWindowToCurrentWindow(driver, parent);
 		try 

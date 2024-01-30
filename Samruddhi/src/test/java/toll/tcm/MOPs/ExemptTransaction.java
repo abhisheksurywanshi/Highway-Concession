@@ -70,7 +70,16 @@ public class ExemptTransaction extends BaseClass
 			System.out.println("CATCH BLOCK FOR EXEMPT TYPE SELECTION IS EXECUTE");
 
 		}
-		RandomClassSelector.randomExemptTypeSelector(Vclass);
+		int RandomExemptType = BaseClass.randomGenerator(1, 1);
+		if(RandomExemptType==1)
+		{
+			RandomClassSelector.randomExemptTypeSelector(Vclass);
+		}
+		else
+		{
+			driver.findElementByXPath("//Edit[@AutomationId='txtExemptSequeneceNo']").sendKeys(""+13+"");
+		}
+		
 		logger.info("Exempt Type is selected");
         ExemptTransaction.info("Exempt Type is selected");
 		driver.getKeyboard().sendKeys(Keys.ENTER);
@@ -102,10 +111,13 @@ public class ExemptTransaction extends BaseClass
 		String TagClass1=driver.findElementByAccessibilityId("ListViewSubItem-4").getText().toString();
     
     	PC_Send p=new PC_Send();
+    	Thread.sleep(500);
     	logger.info("PC Send Time");
 //    	outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
 //    	COM_Setup.IPAVCSetup99(Vclass);
-		COM_Setup.COMAVCSetup99();
+//		COM_Setup.COMAVCSetup99();
+    	outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
+    	logger.info(getdata.getAVCData(Vclass)+" :outputstream ");
     	logger.info(TagClass1+" AVC is send");
     	ExemptTransaction.info(TagClass1+" AVC is send");
     	logger.info(TagClass1+" Barrier Down Time");
@@ -115,7 +127,7 @@ public class ExemptTransaction extends BaseClass
     		ExplicitWait(By.name("Vehicle pending in queue - 0"));
 //    		Fluentwait(driver.findElementByName("Vehicle pending in queue - 0"), 30, 6);
     		SetProfilerImage s= new SetProfilerImage(TagClass1);
-//    		ImageVerification i= new ImageVerification();
+    		ImageVerification i= new ImageVerification();
     		
     	}
     	catch(Exception t)
@@ -126,7 +138,7 @@ public class ExemptTransaction extends BaseClass
         		ExplicitWait(By.name("Vehicle pending in queue - 0"));
 //        		Fluentwait(driver.findElementByName("Vehicle pending in queue - 0"),10, 1);
         		SetProfilerImage s= new SetProfilerImage(TagClass1);
-//        		ImageVerification i1= new ImageVerification();
+        		ImageVerification i1= new ImageVerification();
         		
     		}
     		catch(Exception e)
@@ -138,7 +150,7 @@ public class ExemptTransaction extends BaseClass
         		ExplicitWait(By.name("Vehicle pending in queue - 0"));
 //        		Fluentwait(driver.findElementByName("Vehicle pending in queue - 0"),10, 1);
         		SetProfilerImage s= new SetProfilerImage(TagClass1);
-//        		ImageVerification i1= new ImageVerification();
+        		ImageVerification i1= new ImageVerification();
     		}
     		
     	}

@@ -89,11 +89,12 @@ public class FreeConvoy extends BaseClass
 				
 //				hexData = "02";         
 //		        dataBytes = hexStringToByteArray(hexData);
-//		        outputStreamForAVC.write(dataBytes);
+		        outputStreamForAVC.write(dataBytes);
 		       
 //		        System.out.println(toReturnAVCClass+" ccccccc");
-				COM_Setup.COMAVCSetup99();
-//				outputStreamForAVC.write(toReturnAVCClass.getBytes());
+//				COM_Setup.COMAVCSetup99();
+				
+				outputStreamForAVC.write(toReturnAVCClass.getBytes());
 //				hexData = "03";         
 //		        dataBytes = hexStringToByteArray(hexData);
 //				outputStreamForAVC.write(dataBytes);

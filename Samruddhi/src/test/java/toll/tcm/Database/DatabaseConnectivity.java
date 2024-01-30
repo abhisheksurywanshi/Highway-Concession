@@ -26,7 +26,39 @@ public class DatabaseConnectivity extends BaseClass
 {
 	
 	
+	public static ArrayList getAllLanes() throws SQLException
+	{
+		ArrayList <String>AllLanes=new ArrayList<String>();
+   	 System.out.println(DataBaseurl+" "+ DatBaseusername+" "+ DatBasepassword);
+   	 Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
+	        String sql = "select * from mvw_toll_lane_master t where t.toll_id= (select toll_id from mvw_kent_present_toll)";
+	        
+	       
+	        
+	        Statement statement = connection.createStatement();
+	        ResultSet resultSet = statement.executeQuery(sql);
+
+	        while (resultSet.next()) {
+	        
+	            String Lane = resultSet.getString("LANE_CD"); // Replace with the actual column name
+
+	            AllLanes.add(Lane);
+	            
+	            
+	        }
 	
+       
+	        GetWimSubClass example = new GetWimSubClass();
+
+
+        example.setItemList(AllLanes);
+
+      
+        ArrayList<String> retrievedList = example.getItemList();
+
+     
+        return retrievedList;
+	}
 
 	public static void main(String[] args) throws Exception 
 	{

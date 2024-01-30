@@ -280,12 +280,12 @@ public class CashTransaction extends BaseClass
 					        	PC_Send obj=new PC_Send();
 					        	logger.info("PC Send Time");
 //					        	CashTransaction.info("PC Send Time");
-					        	COM_Setup.COMAVCSetup99();
-					        	
-//						    	COM_Setup.IPAVCSetup99(Vclass);
+					        	outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
+						    	logger.info(getdata.getAVCData(Vclass)+" :outputstream ");
+//						    	COM_Setup.COMAVCSetup(Vclass);
 //						    	Thread.sleep(3000);
 						    	
-//						    	i= new ImageVerification();
+						    	i= new ImageVerification();
 					        	logger.info(Vclass+" AVC is send");
 					        	CashTransaction.info(Vclass+" AVC is send");
 					        	logger.info(Vclass+" Barrier is Down");

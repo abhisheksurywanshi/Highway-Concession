@@ -81,6 +81,7 @@ public class COM_Setup extends BaseClass {
 	{
 		String timeStamp=new SimpleDateFormat("yy.MM.dd.HH.mm.ss").format(new Date());
     	String AVC_Recieve_String="[IMG01_"+timeStamp.replace(".", "")+"_"+"99"+"]";
+    	logger.info(AVC_Recieve_String+" is send");
     	outputStreamForAVC.write(AVC_Recieve_String.getBytes());
 	}
 	public static void IPAVCSetup99(String VClass) throws IOException

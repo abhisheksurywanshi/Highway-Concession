@@ -104,7 +104,7 @@ public class StaticVariables {
 	protected static ArrayList <String>AvailableExemptMAV7=new ArrayList<String>();
 	protected static ArrayList <String>AvailableExemptOSV=new ArrayList<String>();
 	protected static ArrayList <String>AvailableExemptMAV=new ArrayList<String>();
-	
+	protected static ArrayList <String>BlackListedTags=new ArrayList<String>();
 	protected static Map<String, String> CARIsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, String> LCVIsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, String> BUSIsCaptureFlags = new HashMap<String, String>();

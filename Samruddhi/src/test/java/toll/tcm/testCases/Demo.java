@@ -1,54 +1,38 @@
 package toll.tcm.testCases;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class Demo extends BaseClass {
 	public static void main(String[] args) {
 		
-		String[] keysArray=new String[3];
-		keysArray[0]="121";
-		keysArray[1]="122";
-		keysArray[2]="123";
-		int j=0;
-		System.out.println(System.getProperty("sun.arch.data.model"));
-		OtherCashKey=2;
-		 for (int i = 1; i <=4; i++)
-		 {
-			 int count=1;
-	    		System.out.println("condition "+i);
-	    		for(int k=1;k<=8;k++)
-				{
-	    			int FromWeight =7501;
-		    		int toWeight=11991;
-		    		
-		    		System.out.println("weight is noted.... and  vehicle is selected "+k);
-		    		do {
-						 
-						
-								
-								
-								String OtherCashkey = keysArray[j];
-								System.out.println(OtherCashkey+" mop is selected and transaction completed ");
-								count++;
-							
-						   
-						 if(count!=OtherCashKey)
-						 {
-							 System.out.println("break");
-							 j++;
-							 break;
-						 }
-							 
-					 }while(OtherCashKey>=count);
-		    		if(count!=OtherCashKey)
-		    		{
-		    			j=count;
-		    			break;
-		    		}
-		    		
-				 
-				 }
-	    		
+		try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.1.87:1521:XE", "HC_1_DB", "inCReDiBLe_9CitY");
+
+            CallableStatement callableStatement = connection.prepareCall("{call prc_toll_transactions_iavc_upd(p_status => :p_status)}");
+
+            // Set input parameter
+//            callableStatement.setInt(1, ""); // Replace with the actual value for p_status
+
+            // Execute the stored procedure
+            callableStatement.execute();
+            String outputValue = callableStatement.getString(0);
+
+            // Print the result
+            System.out.println("Output from stored procedure: " + outputValue);
+
+            // Close resources
+            callableStatement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	    		
 		 }
-	}
+	
 
 }

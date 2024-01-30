@@ -38,7 +38,9 @@ public class NSV extends BaseClass
 	    logger.info("Vclass is:"+Vclass);
 	    PC_Send obj1=new PC_Send();
 //	    COM_Setup.IPAVCSetup99(Vclass);
-	    COM_Setup.COMAVCSetup99();
+//	    COM_Setup.COMAVCSetup99();
+	    outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
+    	logger.info(getdata.getAVCData(Vclass)+" :outputstream ");
 //    	outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
     	logger.info("Barrier down Time");
     	try {
@@ -48,7 +50,7 @@ public class NSV extends BaseClass
     		
     	}
     	
-//    	ImageVerification i=new ImageVerification();
+    	ImageVerification i=new ImageVerification();
 		SetProfilerImage s= new SetProfilerImage(Vclass);
 
     	if(RandomSVIntgerForm==47&&(Toll_Name.contains("TASAWADE")||Toll_Name.contains("Nashik")))

@@ -96,10 +96,22 @@ public class GetTag 	extends BaseClass
 //		  34161FA8203288AC0836CF33,58585858585858585858585805,E2003412012A1B00025EF59E060B00
 
 //			 String data = "34161FA8203288AC"+randomString+randomTagSeries+zeroto99+",5858585858585858585858581"+TagClass+",E2003412012A1B00025EF59E060B00";
+	        int rand =BaseClass.randomGenerator(1, 1);
+	        String data;
+	        if(rand==1)
+	        {
+	   		 data = "585858585858585858585858"+TagClass+",34161FA8203288AC"+randomString+randomTagSeries+zeroto99+",E2003412012A1B00025EF59E060B00";
 
+	        }
+	        else
+	        {
+	        	System.out.println("blacklist!!!");
+	        	int RandomBlacklistedTag=BaseClass.randomGenerator(0, BlackListedTags.size());
+	   		  data = "585858585858585858585858"+TagClass+","+BlackListedTags.get(RandomBlacklistedTag)+",E2003412012A1B00025EF59E060B00";
+
+	        }
 		 // Prepare the data to be sent
 
-		 String data = "585858585858585858585858"+TagClass+",34161FA8203288AC"+randomString+randomTagSeries+zeroto99+",E2003412012A1B00025EF59E060B00";
 //			 String data = "58585858585858585858585811"+TagClass+",34161FA8203288AC816,E2003412012A1B00025EF59E060B00";
 
 		 System.out.println("data======== "+data);
@@ -158,6 +170,9 @@ public class GetTag 	extends BaseClass
         		 ExplicitWaitForTag(By.className("WindowsForms10.STATIC.app.0.13965fa_r8_ad1"));
         	 }
         	 captureScreen(driver, "ETC");
+        	 Robot robot= new Robot();
+        	 robot.keyPress(61);
+        	 robot.keyRelease(61);
 //     		 Assert.assertTrue(false);
 //        	 Thread.sleep(200);
 //        	 getTagData();
@@ -249,7 +264,9 @@ public class GetTag 	extends BaseClass
     	     logger.info("class found now"+TagClass1+" Tag getting AVC..");
     	     PC_Send P=new PC_Send();
 //    		 COM_Setup.IPAVCSetup99(TagClass1);
-    	     COM_Setup.COMAVCSetup99();
+//    	     COM_Setup.COMAVCSetup99();
+    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
+		    	logger.info(getdata.getAVCData(TagClass1)+" :outputstream ");
 //    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes()); 
     	     logger.info("Tag End AVC");
 //    	     Thread.sleep(5000);
@@ -294,7 +311,7 @@ public class GetTag 	extends BaseClass
     	    	 ExplicitWaitForTag(By.name("Vehicle pending in queue - 0"));
     	     }
           	 SetProfilerImage s = new SetProfilerImage(TagClass1);
-//          	ImageVerification i=new ImageVerification();
+          	ImageVerification i=new ImageVerification();
          }
          String parent1=driver.getWindowHandle();
 		 // Close the output stream and socket

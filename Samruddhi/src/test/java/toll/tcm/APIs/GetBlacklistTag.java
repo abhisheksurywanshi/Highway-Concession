@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import toll.tcm.testCases.BaseClass;
 
-public class GetBlacklistTag /*extends BaseClass*/ {
+public class GetBlacklistTag extends BaseClass {
 
 	public GetBlacklistTag() throws SQLException 
 	{
@@ -18,8 +18,9 @@ public class GetBlacklistTag /*extends BaseClass*/ {
         ResultSet resultSet = statement.executeQuery(sql);
         while(resultSet.next())
         {
-        	String a=resultSet.getString("tag_id");
-        	System.out.println(a);
+        	String BlackListedTag=resultSet.getString("tag_id");
+        	BlackListedTags.add(BlackListedTag);
+//        	System.out.println(a);
         }
 	}
 	public static void main(String args[]) throws SQLException

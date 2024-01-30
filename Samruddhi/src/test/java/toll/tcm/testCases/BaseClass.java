@@ -76,6 +76,7 @@ import gnu.io.UnsupportedCommOperationException;
 import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.windows.WindowsDriver;
 import io.appium.java_client.windows.WindowsElement;
+import toll.tcm.APIs.GetBlacklistTag;
 import toll.tcm.Database.DatabaseConnectivity;
 import toll.tcm.Database.GetExemptType;
 import toll.tcm.Database.GetWimSubClass;
@@ -118,6 +119,7 @@ public class BaseClass extends StaticVariables
 	
 		connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
 		 DatabaseConnectivity.pass("Database Connected Successfully");
+//		 GetBlacklistTag g= new GetBlacklistTag();
 		 logger=LogManager.getLogger(BaseClass.class);
 		 logger=LogManager.getLogger(BaseClass.class);
 		 
