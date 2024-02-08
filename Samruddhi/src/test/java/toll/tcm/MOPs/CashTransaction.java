@@ -277,8 +277,8 @@ public class CashTransaction extends BaseClass
 					        	logger.info("Barrier up time");
 					        	CashTransaction.info("Barrier up time");
 //					        	System.out.println(getdata.getAVCData(Vclass));
-					        	PC_Send obj=new PC_Send();
-					        	logger.info("PC Send Time");
+//					        	PC_Send obj=new PC_Send();
+//					        	logger.info("PC Send Time");
 //					        	CashTransaction.info("PC Send Time");
 					        	outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
 						    	logger.info(getdata.getAVCData(Vclass)+" :outputstream ");

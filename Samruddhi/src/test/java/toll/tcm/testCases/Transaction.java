@@ -23,15 +23,37 @@ import toll.tcm.utilities.DefaultTransactionNumber;
 import toll.tcm.utilities.*;
 
 
-public class Transaction extends BaseClass
+public class Transaction extends BaseClass implements Runnable
 {
 
 	
+	public void run()
+	{
+		for(int i=0;i<=10;i++)
+		{                                          // labelShiftHH   lblShiftMM  lblShiftSS
+			String HH=driver.findElementByXPath("//Pane[@Name='00.00'][@AutomationId='pnlVehicleNo']//Pane[@AutomationId='pnlHH']").getText().toString();
+			String MM="";//driver.findElementByXPath("//Pane[@AutomationId='pnlMM']//Text[@AutomationId='labelShiftMM']").getText().toString();
+			String SS="";//driver.findElementByXPath("//Pane[@AutomationId='pnlss']//Text[@AutomationId='labelShiftss']").getText().toString();
+			System.out.println(HH+":");
+			System.out.println(":"+MM+":"+SS);
+			try {
+				Thread.sleep(3000); 
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	@Test//(dataProvider="main")
 	public void main() throws InterruptedException, NoSuchPortException, Exception
 	{   
 		
-		
+//		String HH=driver.findElementByXPath("//Pane[@AutomationId='pnlHH']//Text[@AutomationId='labelShiftHH']").getText().toString();
+//		System.out.println(sec+"=====GYGYGY");
+//		System.out.println("==========================================================================================WAFDAEWFDWAD=========================================================");
+		Transaction n=new Transaction();
+		Thread thread=new Thread(n);
 		
 //		for(int i=0;i<ManualTagPunch.GetManualTagPunchVRN().size();i++)
 //		{
@@ -49,10 +71,11 @@ public class Transaction extends BaseClass
 		//		VehicleCDWiseTransaction v =new VehicleCDWiseTransaction();
 //			
 //		
+		
 //		LastTransaction= DefaultTransactionNumber.getDefaultTransationNumber();
 //		System.out.println(":::::::::c "+LastTransaction);
-//		for(int i=1;i<=15;i++)
-//		{
+		for(int i=1;i<=25;i++)
+		{
 //
 //		ManualWeight.manualWeightTransaction(BaseClass.randomGenerator(0, 61001));
 //		SequentialWeightTransaction.SequentialWeightTransaction();
@@ -69,17 +92,17 @@ public class Transaction extends BaseClass
 //			ExemptTransaction.randomExempt(); 
 //			FreeConvoy.freeConvoy(1);	
 			
-//			ExemptTransaction.randomExempt(); 
+			ExemptTransaction.randomExempt(); 
 //			Violation.randomViolation();		
 //			Violation.randomViolation();			
 //		    GetTag g=new GetTag();
-//		    WeightInsert.insertWeight();
+//		    WeightInsert.insertWeight();/
 //		    g.getTagData();
 //		    PaidConvoy.paidConvoy(3);
 //		    NSV.getNonSchedualVehicleKey();
 //		    Tow.tow(3);
 		    
-//	}
+	}
 		
 		
 //		driver.findElementByAccessibilityId("txtVehicleNo").sendKeys("MH01"+"AA");	
@@ -99,6 +122,7 @@ public class Transaction extends BaseClass
 //					Boolean v;
 			
 //			
+				
 			
 			
 			
@@ -195,7 +219,10 @@ public class Transaction extends BaseClass
 //			Violation.randomViolation();
 //			SequentialExcelTransaction s= new SequentialExcelTransaction();
 			
+//			mainWindowToCurrentWindow(driver, driver.getWindowHandle());
+//			thread.start();
 		}
+	
 		}
 //	@Test212
 //	public void ETC() throws Exception

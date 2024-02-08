@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -18,34 +20,34 @@ public class GetPaymentTypes extends BaseClass  {
 //	protected static String DatBaseusername = "HC_1_DB"; // Replace with your username1
 //	protected static String DatBasepassword = "inCReDiBLe_9CitY"; 
 //	static Connection connection;
-	static ArrayList a;
+	
 	public static void main(String[] args) throws SQLException {
 		DatabaseConnectivity d= new DatabaseConnectivity();
 		connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
-		 a=getPaymentTypes();
-		for(int i=0;i<a.size();i++)
+		 paymentTypes=getPaymentTypes();
+		for(int i=0;i<paymentTypes.size();i++)
 		{
-			System.out.println(a.get(i));
+			System.out.println(paymentTypes.get(i));
 		}
-		 Multimap<String, String> PaymentSubType=getPaymentSubTypes();
-		 System.out.println(PaymentSubType);
-		for (Map.Entry<String, String> entry : PaymentSubType.entries()) {
-            String key = entry.getKey();
-            if(key.contains("CASH"))
-            {
-            	
-            	if(PaymentSubType.get(key).size()==1)
-            	{
-            		System.out.println("enter");
-            	}
-            }
-            else
-            {
-            	String value = entry.getValue();
-                logger.info("Key: " + key + ", Value: " + value);
-            }
-            
-        }
+		 Map<String, String> Cash=getPaymentSubTypes("CASH");
+		 System.out.println(Cash);
+//		for (Map.Entry<String, String> entry : PaymentSubType.entries()) {
+//            String key = entry.getKey();
+//            if(key.contains("CASH"))
+//            {
+//            	
+//            	if(PaymentSubType.get(key).size()==1)
+//            	{
+//            		System.out.println("enter");
+//            	}
+//            }
+//            else
+//            {
+//            	String value = entry.getValue();
+//                logger.info("Key: " + key + ", Value: " + value);
+//            }
+//            
+//        }
 	}
 	
 	
@@ -64,10 +66,10 @@ public class GetPaymentTypes extends BaseClass  {
         }
         return PaymentTypes;
 	}
-	public static Multimap getPaymentSubTypes() throws SQLException
+	public static  Map<String, String> getPaymentSubTypes(String type) throws SQLException
 	{
 		
-		Multimap<String, String> MapperKeys = ArrayListMultimap.create();
+		Map<String, String> MapperKeys = new HashMap<String, String>();
 
 
 //   	 String sql1 = "SELECT M.VEHICLE_CLASS_ALIAS FROM MVW_TOLL_VEHICLE_MASTER M WHERE M.PAID_UNPAID='P' AND M.IS_OVERWEIGHT_APPLICABLE='Y'  group by m.vehicle_class_alias ORDER BY M.VEHICLE_CLASS_ALIAS";
@@ -75,25 +77,27 @@ public class GetPaymentTypes extends BaseClass  {
 	        
 //	        ResultSet resultSet = statement.executeQuery(sql1);
 	        
-	    	 for(int i=0;i<a.size();i++) {
+	    	
    		        
-	            String KEY = (String) a.get(i); // Replace with the actual column name
-	       	 String sql="select t.* from mvw_payment_method_details t, mvw_payment_method_master m where t.is_applicable_tcm = 'Y'  and m.is_applicable_tcm='Y' and t.payment_type_id = m.payment_type_id and m.payment_type='"+KEY+"'" ;		       		        
+//	            String KEY = (String) paymentTypes.get(i); // Replace with the actual column name
+	       	 String sql="select t.* from mvw_payment_method_details t, mvw_payment_method_master m where t.is_applicable_tcm = 'Y'  and m.is_applicable_tcm='Y' and t.payment_type_id = m.payment_type_id and m.payment_type='"+type+"'" ;		       		        
 	       	 Statement statement = connection.createStatement();
-	                Statement preparedStatement2 = connection.createStatement();
-	            	ResultSet resultSet2 = preparedStatement2.executeQuery(sql);
-	            while(resultSet2.next())
+	                Statement preparedStatement = connection.createStatement();
+	            	ResultSet resultSet = preparedStatement.executeQuery(sql);
+
+	            while(resultSet.next())
 	            {
-	            	
-	            	String KEYS_ALIAS= resultSet2.getString("Payment_Sub_Type");
-	            	MapperKeys.put(KEY,KEYS_ALIAS);
+
+	            	String Payment_Sub_Type= resultSet.getString("Payment_Sub_Type");
+	            	String IsReference=resultSet.getString("Is_Reference_No");
+	            	MapperKeys.put(Payment_Sub_Type,IsReference);
 	            }
-	           resultSet2.close();
- 	    	 preparedStatement2.close();
+	           resultSet.close();
+ 	    	 preparedStatement.close();
 	            
 	            
 	            
-	        }
+	        
 //   	    	 resultSet.close();
 //   	    	 statement.close();
    	    	 
@@ -101,16 +105,39 @@ public class GetPaymentTypes extends BaseClass  {
 
 	       
 	
-       
-   	 KeyMapping example = new KeyMapping();
+ 	    	KeyMapping example = new KeyMapping();
 
 
-        example.setItemMultiMap( MapperKeys);
+            example.setItemList(MapperKeys);
 
-      
-        Multimap<String, String>retrievedList = example.getItemMultiMap();
+          
+            Map<String, String>retrievedList = example.getItemList();
 
-     
-        return retrievedList;
+         
+            return retrievedList;
 	}
+	public static void IsReference() throws SQLException
+	{
+		 Iterator<String> iterator = paymentTypes.iterator();
+		 for(int i=0;i<paymentTypes.size();i++)
+	        {
+			 String paymentype=paymentTypes.get(i).toString();
+			 if(paymentype.contains("CASH"))
+			 {
+				 CashIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
+			 }
+			 else if(paymentype.contains("CARD"))
+			 {
+				 CardIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
+			 }
+			 else if(paymentype.contains("WALLET"))
+			 {
+				 WalletIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
+			 }
+	        }
+	}
+	
 }

@@ -203,150 +203,177 @@ public class BaseClass extends StaticVariables
 		boolean HardwareChangeFound=false;
 		boolean CheckingRemarkFound=false;
 		boolean UserIDFound=false;
-		do 
+		String parent=driver.getWindowHandle();
+		if(!IsAutoLane)
 		{
-			try
+
+			
+			do 
 			{
-				
-				ExplicitWait(By.xpath("//Window[@Name='Login'][starts-with(@AutomationId,'frmLogin')]//Edit[@AutomationId='txtUserID']"));
-				logger.info("first try block block");
-				login.info("first try block block");
-				visible=true;
-			}
-			catch(Exception e)
-			{
-				capabilities.setCapability("app", url);
-				driver=new WindowsDriver(new URL("http://127.0.0.1:4723"),capabilities);
 				try
 				{
+					
 					ExplicitWait(By.xpath("//Window[@Name='Login'][starts-with(@AutomationId,'frmLogin')]//Edit[@AutomationId='txtUserID']"));
-					UserIDFound=true;
+					logger.info("first try block block");
+					login.info("first try block block");
 					visible=true;
-					if(UserIDFound)
+				}
+				catch(Exception e)
+				{
+					capabilities.setCapability("app", url);
+					driver=new WindowsDriver(new URL("http://127.0.0.1:4723"),capabilities);
+					try
 					{
-						try 
+						ExplicitWait(By.xpath("//Window[@Name='Login'][starts-with(@AutomationId,'frmLogin')]//Edit[@AutomationId='txtUserID']"));
+						UserIDFound=true;
+						visible=true;
+						if(UserIDFound)
 						{
-							visible=driver.findElementByXPath("//Window[@Name='Login'][starts-with(@AutomationId,'frmLogin')]//Edit[@AutomationId='txtUserID']").isDisplayed();
+							try 
+							{
+								visible=driver.findElementByXPath("//Window[@Name='Login'][starts-with(@AutomationId,'frmLogin')]//Edit[@AutomationId='txtUserID']").isDisplayed();
+							}
+							catch(org.openqa.selenium.NoSuchElementException r)
+							{
+								
+							}
 						}
-						catch(org.openqa.selenium.NoSuchElementException r)
-						{
-							
-						}
+					}catch(org.openqa.selenium.NoSuchElementException r)
+					{
+						
 					}
-				}catch(org.openqa.selenium.NoSuchElementException r)
+					
+					
+					
+					
+				}
+			}while(!visible);
+//			ExplicitWait(By.name("OK")); 
+			parent=driver.getWindowHandle();
+//			WindowsDriver<WindowsElement> driver = new WindowsDriver<WindowsElement>(new URL("http://127.0.0.1:4723"),capabilities);
+//			driver.switchTo().window(parent);
+			logger.info("Application Started....");
+			login.pass("Application Started....");
+			try 
+			{
+				if(!HardwareChangeFound)
+				{
+					driver.findElementByName("OK").click();
+				}
+			}
+			catch(org.openqa.selenium.NoSuchElementException e)
+			{
+				try 
+				{
+					if(!CheckingRemarkFound)
+					{
+						driver.findElementByName("Enter  Remark Here...").sendKeys("Testt");
+					}
+				}
+				catch(org.openqa.selenium.NoSuchElementException e2)
 				{
 					
 				}
-				
-				
-				
-				
 			}
-		}while(!visible);
-//		ExplicitWait(By.name("OK")); 
-		String parent=driver.getWindowHandle();
-//		WindowsDriver<WindowsElement> driver = new WindowsDriver<WindowsElement>(new URL("http://127.0.0.1:4723"),capabilities);
-//		driver.switchTo().window(parent);
-		logger.info("Application Started....");
-		login.pass("Application Started....");
-		try 
-		{
-			if(!HardwareChangeFound)
+			
+				
+				
+		    
+			
+			
+
+			
+
+//			driver.getKeyboard().sendKeys(Keys.ENTER);
+//			Thread.sleep(2000);
+//			IAVC i=new IAVC();
+//			i.getIAVC(5);			
+			driver.findElementByAccessibilityId("txtUserID").sendKeys(username);
+			driver.findElementByAccessibilityId("txtPassword").sendKeys(password);
+			driver.getKeyboard().sendKeys(Keys.ENTER);
+			if(Is_LSDU=="L")
 			{
-				driver.findElementByName("OK").click();
+				webdriver= new ChromeDriver();
+				webdriver.findElement(By.xpath("//h2[contains(text(),'Login/Logout')]/../..//button[@id='authorisey']")).click();
+//				
+				
 			}
+			WebDriverWait wait=new WebDriverWait(driver, 5);
+			logger.info("after click login");
+			login.info("after click login");
+			try
+			{
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Cancel")));
+				
+			}
+			catch(org.openqa.selenium.TimeoutException r)
+			{
+				logger.warn("Cancel button invisiblity is skipped");
+				login.warning("Cancel button invisiblity is skipped");
+			}	
+			
+//			wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Vehicle Number/Barcode")) );
+
+//			Thread.sleep(20000);
 		}
-		catch(org.openqa.selenium.NoSuchElementException e)
-		{
+			mainWindowToCurrentWindow(driver, parent,login);
 			try 
 			{
-				if(!CheckingRemarkFound)
-				{
-					driver.findElementByName("Enter  Remark Here...").sendKeys("Testt");
-				}
-			}
-			catch(org.openqa.selenium.NoSuchElementException e2)
-			{
+				mainWindowToCurrentWindow(driver, parent,login);  //
+//				ExplicitWait(By.name("Vehicle Number/Barcode"));
+				boolean visible =false;
+				
+					ExplicitWait(By.name("Waiting for New transaction"));
+					
+				
+				
+				
+				Home_Page_Window=driver.getWindowHandle();
+				logger.info("ETC IP port connecting");
+				login.info("ETC IP port connecting");
+				etcConnect(login);
 				
 			}
-		}
-		
-			
-			
-	    
-		
-		
-
-		
-
-//		driver.getKeyboard().sendKeys(Keys.ENTER);
-//		Thread.sleep(2000);
-//		IAVC i=new IAVC();
-//		i.getIAVC(5);			
-		driver.findElementByAccessibilityId("txtUserID").sendKeys(username);
-		driver.findElementByAccessibilityId("txtPassword").sendKeys(password);
-		driver.getKeyboard().sendKeys(Keys.ENTER);
-		if(Is_LSDU=="L")
-		{
-			webdriver= new ChromeDriver();
-			webdriver.findElement(By.xpath("//h2[contains(text(),'Login/Logout')]/../..//button[@id='authorisey']")).click();
-//			
-			
-		}
-		WebDriverWait wait=new WebDriverWait(driver, 5);
-		logger.info("after click login");
-		login.info("after click login");
-		try
-		{
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Cancel")));
-			
-		}
-		catch(org.openqa.selenium.TimeoutException r)
-		{
-			logger.warn("Cancel button invisiblity is skipped");
-			login.warning("Cancel button invisiblity is skipped");
-		}	
-		
-//		wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Vehicle Number/Barcode")) );
-
-//		Thread.sleep(20000);
-		
-		mainWindowToCurrentWindow(driver, parent,login);
+			catch(Exception e)
+			{
+				mainWindowToCurrentWindow(driver, parent);
+//				ExplicitWait(By.name("Vehicle Number/Barcode"));
+				try 
+				{
+					
+					ExplicitWait(By.name("Waiting for New transaction"));
+					logger.info("try block for waiting for trasaction element");
+				}
+				catch(org.openqa.selenium.TimeoutException p)
+				{
+					
+						capabilities.setCapability("app", url);
+						driver=new WindowsDriver(new URL("http://127.0.0.1:4723"),capabilities);
+						ExplicitWait(By.name("Waiting for New transaction"));
+						logger.info("catch block for waiting for trasaction element");
+					
+				}
+				logger.info("ETC IP port connecting");
+				login.info("ETC IP port connecting");
+				etcConnect(login);
+			}
 		try 
 		{
-			mainWindowToCurrentWindow(driver, parent,login);  //
-//			ExplicitWait(By.name("Vehicle Number/Barcode"));
-			ExplicitWait(By.name("Waiting for New transaction"));
-			
-			Home_Page_Window=driver.getWindowHandle();
-			logger.info("ETC IP port connecting");
-			login.info("ETC IP port connecting");
-			etcConnect(login);
-			
-		}
+			mainWindowToCurrentWindow(driver, parent);
+			if(driver.findElementByAccessibilityId("txtVehicleNo").isDisplayed())  //&&driver.findElementByAccessibilityId("txtVehicleNo").isSelected()
+				logger.info("Login Successfully....");
+				login.info("Login Successfully....");
+				
+		}	
 		catch(Exception e)
 		{
-			mainWindowToCurrentWindow(driver, parent,login);
-//			ExplicitWait(By.name("Vehicle Number/Barcode"));
-			ExplicitWait(By.name("Waiting for New transaction"));
-			logger.info("ETC IP port connecting");
-			login.info("ETC IP port connecting");
-			etcConnect(login);
+				logger.warn("Login unSuccessfully!! or unable to find element");
+				login.warning("Login unSuccessfully!! or unable to find element");
 		}
-	try 
-	{
-		if(driver.findElementByAccessibilityId("txtVehicleNo").isDisplayed())  //&&driver.findElementByAccessibilityId("txtVehicleNo").isSelected()
-			logger.info("Login Successfully....");
-			login.info("Login Successfully....");
-			
-	}	
-	catch(Exception e)
-	{
-			logger.warn("Login unSuccessfully!! or unable to find element");
-			login.warning("Login unSuccessfully!! or unable to find element");
-	}
-	
-		  
+		
+			  
+		
+		
 	}
 	public static void mainWindowToCurrentWindow(WindowsDriver driver,String parent,ExtentTest mainwindowToCurrent) throws InterruptedException
 	{
@@ -391,8 +418,16 @@ public class BaseClass extends StaticVariables
 		String parent =driver.getWindowHandle();
 		driver.getKeyboard().sendKeys(Keys.ESCAPE);
 		Robot robot = new Robot();
-		robot.keyPress(36);
-		robot.keyRelease(36);
+		if(!IsAutoLane)
+		{
+			robot.keyPress(36);
+			robot.keyRelease(36);
+		}
+		else
+		{
+			driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.HOME));
+			driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.HOME));
+		}
 		try  
 		{
 			if(driver.findElementByName("Vehicle pending in queue.").isDisplayed())
@@ -413,8 +448,16 @@ public class BaseClass extends StaticVariables
 					driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.END));
 					driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.END));
 					
-					robot.keyPress(36);
-					robot.keyRelease(36);
+					if(!IsAutoLane)
+					{
+						robot.keyPress(36);
+						robot.keyRelease(36);
+					}
+					else
+					{
+						driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.HOME));
+						driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.HOME));
+					}
 					v=driver.findElementByName("Vehicle pending in queue - 0").isDisplayed();
 				}while(v);
 				
@@ -440,7 +483,7 @@ public class BaseClass extends StaticVariables
 			{
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Waiting for New transaction")));
 				visible=true;
-				System.out.println("first try block");
+				System.out.println("first try block invisibility of waiting for new transaction  ");
 				
 				mainWindowToCurrentWindow(driver, parent,close);
 			}
@@ -481,7 +524,7 @@ public class BaseClass extends StaticVariables
 		{
 			driver.getKeyboard().sendKeys(Keys.NUMPAD1);
 //			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//Edit[@AutomationId='txtUserID'")));
-//			System.out.println(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//Edit[@AutomationId='txtUserID'"))).toString());
+			System.out.println("ooooo"+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//Edit[@AutomationId='txtUserID'"))).toString());
 			driver.findElementByName("Cancel").click();
 			
 //			driver.getKeyboard().sendKeys(Keys.ENTER);
@@ -506,6 +549,7 @@ public class BaseClass extends StaticVariables
 			driver.getKeyboard().sendKeys(Keys.NUMPAD1);
 
 			System.out.println("default selection is wrong...");
+			driver.getKeyboard().sendKeys(Keys.TAB);
 			driver.getKeyboard().sendKeys(Keys.TAB);
 			driver.getKeyboard().sendKeys(Keys.TAB);
 //			driver.getKeyboard().sendKeys(Keys.TAB);

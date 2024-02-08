@@ -288,7 +288,69 @@ public class GetExemptType extends BaseClass{
 	        }
 //	        	
 	        
+	   public static void ClassesIsExemptRemarkFlags() throws SQLException
+	   {
+		  
+		    
+	        Iterator<String> iterator = VehicleCDWiseExemptType.iterator();
+	        for(int i=0;i<VehicleCDWiseExemptType.size();i++)
+	        {
+	        	String VCD=VehicleCDWiseExemptType.get(i).toString();
+	        	
+	        	if(VCD.contains("04"))
+	        	{
+	        		CARIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , CARIsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("05"))
+	        	{
+	        		LCVIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , LCVIsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("07"))
+	        	{
+	        		BUSIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , BUSIsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("10"))
+	        	{
+	        		TRUCKIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , TRUCKIsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("11"))
+	        	{
+	        		MAV3IsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , MAV3IsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("12"))
+	        	{
+	        		MAV4IsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , MAV4IsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("13"))
+	        	{
+	        		MAV5IsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , MAV5IsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("14"))
+	        	{
+	        		MAV6IsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , MAV6IsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("15"))
+	        	{
+	        		OSVIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , OSVIsExemptRemarkFlags);
+	        	}
+	        	else if(VCD.contains("17"))
+	        	{
+	        		OSVIsExemptRemarkFlags=IsExemptRemark(VehicleCDWiseExemptType.get(i));
+	        		allVehicleIsExemptRemarkFlags.put(VehicleCDWiseExemptType.get(i) , OSVIsExemptRemarkFlags);	        		
+	        	}	        	        	
 	        
+	        }
+	        
+	        }
 	   
 	   public static Map<String, String> isCapture(String CD) throws SQLException
 	     {
@@ -299,12 +361,13 @@ public class GetExemptType extends BaseClass{
 		    	 		+ "    SELECT t.version_no,\r\n"
 		    	 		+ "           t.imagecapture, -- Add the imagecapture column\r\n"
 		    	 		+ "           m.exempt_type,\r\n"
+		    	 		+ "			  t.extra4,"
 		    	 		+ "           RANK() OVER (ORDER BY t.version_no DESC) AS available_exempt\r\n"
 		    	 		+ "    FROM mvw_toll_exempt_type t\r\n"
 		    	 		+ "    JOIN mvw_kent_exempt_type_master m ON t.kent_exempt_id = m.kent_exempt_id\r\n"
 		    	 		+ "    WHERE t.vehicle_cd LIKE '%"+CD+"'\r\n"
 		    	 		+ "      AND t.toll_id = (SELECT toll_id FROM mvw_kent_present_toll)\r\n"
-		    	 		+ "    GROUP BY t.imagecapture, m.exempt_type, t.version_no\r\n"
+		    	 		+ "    GROUP BY t.imagecapture, m.exempt_type, t.version_no,t.extra4\r\n"
 		    	 		+ ") h\r\n"
 		    	 		+ "WHERE available_exempt = 1\r\n"
 		    	 		+ "";
@@ -319,6 +382,52 @@ public class GetExemptType extends BaseClass{
 		            String Image_Capture = resultSet.getString("ImageCapture"); // Replace with the actual column name
 		            String Exempt_Type = resultSet.getString("Exempt_Type");
 		            IsCapture.put(Exempt_Type, Image_Capture);
+		            
+		            
+		        }
+		        resultSet.close();
+	            statement.close();
+	            KeyMapping example = new KeyMapping();
+
+
+	            example.setItemList(IsCapture);
+
+	          
+	            Map<String, String>retrievedList = example.getItemList();
+
+	         
+	            return retrievedList;
+	     }
+	   public static Map<String, String> IsExemptRemark(String CD) throws SQLException
+	     {
+		   Map<String, String> IsCapture = new HashMap<String, String>();
+//	    	 Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
+	    	 String sql = "SELECT *\r\n"
+		    	 		+ "FROM (\r\n"
+		    	 		+ "    SELECT t.version_no,\r\n"
+		    	 		+ "           t.imagecapture, -- Add the imagecapture column\r\n"
+		    	 		+ "           m.exempt_type,\r\n"
+		    	 		+ "			  t.extra4,"
+		    	 		+ "           RANK() OVER (ORDER BY t.version_no DESC) AS available_exempt\r\n"
+		    	 		+ "    FROM mvw_toll_exempt_type t\r\n"
+		    	 		+ "    JOIN mvw_kent_exempt_type_master m ON t.kent_exempt_id = m.kent_exempt_id\r\n"
+		    	 		+ "    WHERE t.vehicle_cd LIKE '%"+CD+"'\r\n"
+		    	 		+ "      AND t.toll_id = (SELECT toll_id FROM mvw_kent_present_toll)\r\n"
+		    	 		+ "    GROUP BY t.imagecapture, m.exempt_type, t.version_no,t.extra4\r\n"
+		    	 		+ ") h\r\n"
+		    	 		+ "WHERE available_exempt = 1\r\n"
+		    	 		+ "";
+		        
+		       
+		        
+		        Statement statement = connection.createStatement();
+		        ResultSet resultSet = statement.executeQuery(sql);
+
+		        while (resultSet.next()) {
+		        
+		            String IsRemark = resultSet.getString("Extra4"); // Replace with the actual column name
+		            String Exempt_Type = resultSet.getString("Exempt_Type");
+		            IsCapture.put(Exempt_Type, IsRemark);
 		            
 		            
 		        }

@@ -24,7 +24,8 @@ import com.google.common.collect.Multimap;
 public class KeyMapping extends BaseClass
 	
 {	
-	
+	public Map<String, String> itemList = new HashMap<String, String>();
+	public Multimap<String, String> itemMultiMap =  ArrayListMultimap.create();
     public Map<String, String> getItemList() {
         return itemList;
     }
@@ -137,7 +138,10 @@ public class KeyMapping extends BaseClass
 	       keysArrayForIsOverWeightApplicable=Is_OverWeight_Applicable.isOverWeightApplicable().keySet().toArray(new String[0]);
 	       System.out.println("Done=======");
 	       GetExemptType.ClassesIsCaptureFlags();
+	       GetExemptType.ClassesIsExemptRemarkFlags();
+	       paymentTypes=GetPaymentTypes.getPaymentTypes();
 	       
+	       GetPaymentTypes.IsReference();
 //	       System.out.println("{");
 //	       for (Map.Entry<String, Map<String, String>> outerEntry : allVehicleCaptureFlags.entrySet()) {
 //	    	    String outerKey = outerEntry.getKey();
@@ -160,10 +164,26 @@ public class KeyMapping extends BaseClass
 //	       System.out.println();
 	       String flags=allVehicleCaptureFlags.toString();
 	       String output = flags.replaceAll("},", "},\n");
-
+	       	logger.info("Is Capture Flags");
 	        // Print the formatted string
-	        logger.info(output);
-	        KeyMappingg.info(output);
+	        logger.info("\n"+output);
+	        KeyMappingg.info("\n"+output);
+	        
+	        String flags1=allVehicleIsExemptRemarkFlags.toString();
+		       String output1 = flags1.replaceAll("},", "},\n");
+		       	logger.info("Is ExemptRemark Flags");
+
+		        // Print the formatted string
+		        logger.info("\n"+output1);
+		        KeyMappingg.info("\n"+output1);
+		        
+		        String flags2=allReferenceFlags.toString();
+			       String output2 = flags2.replaceAll("},", "},\n");
+			       	logger.info("Is Reference Flags");
+
+			        // Print the formatted string
+			        logger.info("\n"+output2);
+			        KeyMappingg.info("\n"+output2);
 //	       ToWeight=Arrays.sort(ToWeightarray);
 //	       for(int i=0;i<ToWeight.size();i++)
 //	       {

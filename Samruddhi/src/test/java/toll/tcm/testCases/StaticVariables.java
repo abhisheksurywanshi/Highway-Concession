@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.swing.JFrame;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -30,7 +32,7 @@ import toll.tcm.Hardware.GetAVCData;
 import toll.tcm.Hardware.ImageVerification;
 import toll.tcm.utilities.ReadConfig;
 
-public class StaticVariables {
+public class StaticVariables extends JFrame {
 	static ReadConfig readconfig=new ReadConfig();
 	public static String url=readconfig.getApplicationPath();
 	public static String tagReaderIPaddress=readconfig.getTagReaderIAddress();
@@ -51,7 +53,8 @@ public class StaticVariables {
 	protected static CommPortIdentifier portIdentifierForAVC, portIdentifierForExitAVC, portIdentifierForWeight, portIdentifierForTag;
 	protected static SerialPort serialPortForAVC,serialPortForExitAVC,serialPortForWeight,serialPortForTag;		
 	protected static Random random;
-	protected static String path;
+	protected static String path,Is_ETCAutoLogin;
+	
 	protected static boolean visible=false;
 	protected static String Weight;
 	protected static Socket socket;
@@ -89,6 +92,7 @@ public class StaticVariables {
 	protected static String[] keysArrayForOtherCashKeys;
 	protected static String[] keysArrayForTolWimClassDetail;
 	protected static String[] keysArrayForIsOverWeightApplicable;
+	protected static ArrayList paymentTypes;
 	protected static ArrayList <String> ClassArrayForTollWimClassDetail =new ArrayList<String>();
 	protected static ArrayList <Integer> ToWeight =new ArrayList<Integer>();
 	protected static  ArrayList <Integer> ToWeightArrayList=new ArrayList<Integer>();
@@ -105,6 +109,7 @@ public class StaticVariables {
 	protected static ArrayList <String>AvailableExemptOSV=new ArrayList<String>();
 	protected static ArrayList <String>AvailableExemptMAV=new ArrayList<String>();
 	protected static ArrayList <String>BlackListedTags=new ArrayList<String>();
+	protected static ArrayList <String>GetOperatorList=new ArrayList<String>();
 	protected static Map<String, String> CARIsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, String> LCVIsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, String> BUSIsCaptureFlags = new HashMap<String, String>();
@@ -115,15 +120,33 @@ public class StaticVariables {
 	protected static Map<String, String> MAV6IsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, String> OSVIsCaptureFlags = new HashMap<String, String>();
 	protected static Map<String, Map<String, String>> allVehicleCaptureFlags = new HashMap<String, Map<String, String>>();
+	
+	protected static Map<String, String> CARIsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> LCVIsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> BUSIsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> TRUCKIsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> MAV3IsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> MAV4IsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> MAV5IsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> MAV6IsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, String> OSVIsExemptRemarkFlags = new HashMap<String, String>();
+	protected static Map<String, Map<String, String>> allVehicleIsExemptRemarkFlags = new HashMap<String, Map<String, String>>();
+	
+	
+	protected static Map<String, String> CashIsReferenceFLags = new HashMap<String, String>();
+	protected static Map<String, String> CardIsReferenceFLags = new HashMap<String, String>();
+	protected static Map<String, String> WalletIsReferenceFLags = new HashMap<String, String>();
+	protected static Map<String, Map<String, String>> allReferenceFlags = new HashMap<String, Map<String, String>>();
+	
 	protected static ArrayList <String>VehicleCDWiseExemptType=new ArrayList<String>();
 	protected static ArrayList <String>PaymentType=new ArrayList<String>(); 
 	protected static WebDriver webdriver;
 	protected static ImageVerification i;
-	protected static String Home_Page_Window,In_Out,IP_Address ,Lane_ID,AVC_COM,Exit_Avc_Com_No,Lane_Alias,WIM_COM_NO,Toll_Name,Is_LSDU,ExemptKey,Is_ETC_Popup="N" , Is_Card_Ref,Is_ManualInsertWeight="N",Is_0Weight_Insert="N",Is_Weight_Delete,Is_Profile_IP;
+	protected static String Home_Page_Window,In_Out,IP_Address ,Lane_ID,Toll_ID,AVC_COM,Exit_Avc_Com_No,Lane_CD,WIM_COM_NO,Toll_Name,Is_LSDU,ExemptKey,Is_ETC_Popup="N" , Is_Card_Ref,Is_ManualInsertWeight="N",Is_0Weight_Insert="N",Is_Weight_Delete,Is_Profile_IP,Is_Exempt_Remark;
 	protected  static String COMPortNameForAVC;
 	protected  static String COMPortNameForExitAVC;
 	public static String COMPortNameForWeight;
-	
+	public static boolean IsAutoLane=false;
 	protected static String hexData;
 	protected static byte[] dataBytes;
 	protected static String FirstFreeConvoy;

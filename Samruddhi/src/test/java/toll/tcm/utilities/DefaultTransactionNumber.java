@@ -55,8 +55,8 @@ public class DefaultTransactionNumber extends BaseClass{
 //		{
 //			
 //		}
-		System.out.println(Lane_Alias);
-		String lane_no=Lane_Alias.substring(Lane_Alias.length()-2);
+		System.out.println(Lane_CD);
+		String lane_no=Lane_CD.substring(Lane_CD.length()-2);
 		return Transaction+"0"+toGetCurrentShift()+lane_no+"00000";
 	}
 	public static String toGetCurrentShift() throws SQLException

@@ -239,7 +239,7 @@ public class GetTag 	extends BaseClass
     	        {
     	        	Long Latesttransaction=(Long.valueOf(LastTransaction))+1;
     	       	    String latest=String.valueOf(Latesttransaction);
-    	       	     System.out.println(latest);
+    	       	     logger.info("Expcted Latest Transaction:"+latest);
     	       	    
     	       	  logger.info("Non-Default Transaction is found.");
     	       	    	ExplicitWaitForTag(By.name(latest));
@@ -262,9 +262,10 @@ public class GetTag 	extends BaseClass
     	     logger.info("tag class searching..");
     	     String TagClass1=driver.findElementByAccessibilityId("ListViewSubItem-4").getText().toString();   //SNC
     	     logger.info("class found now"+TagClass1+" Tag getting AVC..");
-    	     PC_Send P=new PC_Send();
+//    	     PC_Send P=new PC_Send();
 //    		 COM_Setup.IPAVCSetup99(TagClass1);
 //    	     COM_Setup.COMAVCSetup99();
+//    	     ExplicitWait(By.xpath("//Pane[@Name=':'][@AutomationId='picBarrier_C']"));
     	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
 		    	logger.info(getdata.getAVCData(TagClass1)+" :outputstream ");
 //    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes()); 
@@ -303,7 +304,7 @@ public class GetTag 	extends BaseClass
         	     logger.info("class found now"+TagClass1+" Tag getting AVC..");
 //    	    	 responseBytesForAVC = new byte[1024];
 //                 bytesReadForAVC = inputStreamForTag.read(responseBytesForAVC);
-                 
+//        	       P=new PC_Send();
                  // Convert the received bytes to a string
 //                 responseForAVC = new String(responseBytesForAVC, 0, bytesReadForAVC);
 //                 System.out.println("Responce for AVC:"+responseForAVC);
@@ -510,7 +511,7 @@ public class GetTag 	extends BaseClass
 		}
 		
 	}
-	private static <T> T getRandomETC(ArrayList<T> arrayList) {
+	public static <T> T getRandomETC(ArrayList<T> arrayList) {
 		Random random = new Random();
         int randomIndex = random.nextInt(arrayList.size());
         return arrayList.get(randomIndex);

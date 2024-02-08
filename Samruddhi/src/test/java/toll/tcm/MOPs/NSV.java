@@ -36,7 +36,8 @@ public class NSV extends BaseClass
 	    logger.info("Barrier Up Time");
 	    ExplicitWait(By.name("Vehicle pending in queue - 1"));
 	    logger.info("Vclass is:"+Vclass);
-	    PC_Send obj1=new PC_Send();
+//	    PC_Send obj1=new PC_Send();
+//	    ExplicitWait(By.xpath("//Pane[@Name='Shift Reamaining Time'][@AutomationId='picTL']"));
 //	    COM_Setup.IPAVCSetup99(Vclass);
 //	    COM_Setup.COMAVCSetup99();
 	    outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());

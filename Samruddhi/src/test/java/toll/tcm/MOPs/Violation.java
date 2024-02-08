@@ -54,16 +54,16 @@ public class Violation extends BaseClass
 		String [] VClass=new String[14];
 		
 //		VClass[0]="Vehicle Class";
-		VClass[1]="CAR/JEEP";
-		VClass[2]="LCV";
-		VClass[3]="TRUCK";
-		VClass[4]="BUS";
-		VClass[5]="MAV 3";
-		VClass[6]="MAV 4";
-		VClass[7]="MAV 5";
-		VClass[8]="MAV 6";
-		VClass[9]="OSV";
-		VClass[10]="LCV";
+//		VClass[1]="CAR/JEEP";
+//		VClass[2]="LCV";
+//		VClass[3]="TRUCK";
+//		VClass[4]="BUS";
+//		VClass[5]="MAV 3";
+//		VClass[6]="MAV 4";
+//		VClass[7]="MAV 5";
+//		VClass[8]="MAV 6";
+//		VClass[9]="OSV";
+//		VClass[10]="LCV";
 		VClass[11]="TRACTOR";
 		VClass[12]="AUTO";
 		VClass[13]="BIKE";
@@ -73,7 +73,7 @@ public class Violation extends BaseClass
 		
 		DecimalFormat twodigits = new DecimalFormat("00");
 	    String t="";
-		for(int i=1;i<VClass.length;i++)
+		for(int i=11;i<VClass.length;i++)
 		{
 			System.out.println("returnVehicleClass :" + VClass[randomClass] );
 			System.out.println("VClass: "+VClass[i]);

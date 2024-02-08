@@ -78,7 +78,7 @@ public class DatabaseConnectivity extends BaseClass
 			
 //			logger.info("Database Successfully Connected....");
 //			getTollInfo.info("Database Successfully Connected....");
-            String sql = "select c.ip_address, t.lane_id, t.in_out,m.toll_name ,p.avc_com,h.exit_avc_com_no,t.lane_alias,h.wim_com_no,t.is_login_authorization,p.extra13,p.extra4,p.extra5,p.extra3,h.is_avc_client\r\n"
+            String sql = "select c.ip_address, t.lane_id,t.toll_id, t.in_out,m.toll_name ,p.avc_com,h.exit_avc_com_no,t.lane_cd,h.wim_com_no,t.is_login_authorization,p.extra13,p.extra4,p.extra5,p.extra3,h.is_avc_client,p.extra14,p.extra12\r\n"
             		+ "                                  from current_lane_information  c,\r\n"
             		+ "                                       mvw_toll_lane_master      t,\r\n"
             		+ "                                       mvw_lane_config_parameter p,\r\n"
@@ -89,7 +89,7 @@ public class DatabaseConnectivity extends BaseClass
             		+ "                                  and p.lane_id = h.lane_id\r\n"
             		+ "                                  and t.toll_id=m.toll_id\r\n"
             		+ "                                  and t.toll_id= (select toll_id from mvw_kent_present_toll)\r\n"
-            		+ "                                group by c.ip_address, t.lane_id, t.in_out,p.avc_com,h.exit_avc_com_no,t.lane_alias,h.wim_com_no,m.toll_name,t.is_login_authorization,p.extra13,p.extra4,p.extra5,p.extra3,h.is_avc_client";
+            		+ "                                group by c.ip_address, t.lane_id, t.toll_id,t.in_out,p.avc_com,h.exit_avc_com_no,t.lane_cd,h.wim_com_no,m.toll_name,t.is_login_authorization,p.extra13,p.extra4,p.extra5,p.extra3,h.is_avc_client,p.extra14,p.extra12";
 
            
             
@@ -102,19 +102,22 @@ public class DatabaseConnectivity extends BaseClass
                 Lane_ID = resultSet.getString("lane_id");
                 AVC_COM = resultSet.getString("avc_com");
                 Exit_Avc_Com_No= resultSet.getString("exit_avc_com_no");
-                Lane_Alias = resultSet.getString("lane_alias");
+                Lane_CD = resultSet.getString("lane_cd");
                 WIM_COM_NO = resultSet.getString("wim_com_no");
                 Toll_Name=resultSet.getString("Toll_Name");
                 Is_LSDU=resultSet.getString("is_login_authorization");
                 Is_ETC_Popup=resultSet.getString("extra3");
-                Is_ManualInsertWeight=resultSet.getString("extra13");
+                Is_ManualInsertWeight="Not in Use"; //p.extra13
                 Is_0Weight_Insert=resultSet.getString("extra4");
                 Is_Weight_Delete=resultSet.getString("extra5");
                 In_Out=resultSet.getString("in_out");
                 Is_Profile_IP=resultSet.getString("is_avc_client");
+                Is_ETCAutoLogin=resultSet.getString("extra14");
+                Toll_ID=resultSet.getString("Toll_ID");
+                Is_Exempt_Remark=resultSet.getString("Extra12");
                 // Process the retrieved data
-                logger.info("toll name: "+Toll_Name+"| \nlane_ip_address :"+IP_Address+"| \nlane_id :"+Lane_ID+"| \navc_com :"+AVC_COM+"| \nexit_avc_com_no :"+Exit_Avc_Com_No+"| \nlane_alias :"+Lane_Alias+"| \nwim_com :"+WIM_COM_NO+"| \nIsLSDU:"+Is_LSDU+"| \nIs_ETC_Popup:"+Is_ETC_Popup+"| \nIs_ManualInsertWeight:"+Is_ManualInsertWeight+"| \nis_0_Weight Insert:"+Is_0Weight_Insert+"| \nis_Weight_Delete:"+Is_Weight_Delete+"| \nIn_Out:"+In_Out);
-                getTollInfo.info("toll name: "+Toll_Name+"| \nlane_ip_address :"+IP_Address+"| \nlane_id :"+Lane_ID+"| \navc_com :"+AVC_COM+"| \nexit_avc_com_no :"+Exit_Avc_Com_No+"| \nlane_alias :"+Lane_Alias+"| \nwim_com :"+WIM_COM_NO+"| \nIsLSDU:"+Is_LSDU+"| \nIs_ETC_Popup:"+Is_ETC_Popup+"| \nIs_ManualInsertWeight:"+Is_ManualInsertWeight+"| \nis_0_Weight Insert:"+Is_0Weight_Insert+"| \nis_Weight_Delete:"+Is_Weight_Delete+"| \nIn_Out:"+In_Out);
+                logger.info("toll name: "+Toll_Name+"|\n Toll_ID:"+Toll_ID+"| \nlane_ip_address :"+IP_Address+"| \nlane_id :"+Lane_ID+"| \navc_com :"+AVC_COM+"| \nexit_avc_com_no :"+Exit_Avc_Com_No+"| \nlane_alias :"+Lane_CD+"| \nwim_com :"+WIM_COM_NO+"| \nIsLSDU:"+Is_LSDU+"| \nIs_ETC_Popup:"+Is_ETC_Popup+"| \nIs_ManualInsertWeight:"+Is_ManualInsertWeight+"| \nis_0_Weight Insert:"+Is_0Weight_Insert+"| \nis_Weight_Delete:"+Is_Weight_Delete+"| \nIn_Out:"+In_Out+"|\nIs_ETCAutoLogin:"+Is_ETCAutoLogin);
+                getTollInfo.info("toll name: "+Toll_Name+"| \nlane_ip_address :"+IP_Address+"| \nlane_id :"+Lane_ID+"| \navc_com :"+AVC_COM+"| \nexit_avc_com_no :"+Exit_Avc_Com_No+"| \nlane_alias :"+Lane_CD+"| \nwim_com :"+WIM_COM_NO+"| \nIsLSDU:"+Is_LSDU+"| \nIs_ETC_Popup:"+Is_ETC_Popup+"| \nIs_ManualInsertWeight:"+Is_ManualInsertWeight+"| \nis_0_Weight Insert:"+Is_0Weight_Insert+"| \nis_Weight_Delete:"+Is_Weight_Delete+"| \nIn_Out:"+In_Out+"|\nIs_ETCAutoLogin:"+Is_ETCAutoLogin);
                 COMPortNameForAVC=comPairing(AVC_COM);
                 logger.info("AVC_COM Pairing is: "+COMPortNameForAVC);
                 getTollInfo.info("AVC_COM Pairing is: "+COMPortNameForAVC);
@@ -124,6 +127,7 @@ public class DatabaseConnectivity extends BaseClass
                 COMPortNameForWeight=comPairing(WIM_COM_NO);
                 logger.info("WIM_COM Pairing is: "+COMPortNameForWeight);
                 getTollInfo.info("WIM_COM Pairing is: "+COMPortNameForWeight);
+                
             }
 
             resultSet.close();
@@ -165,6 +169,9 @@ public class DatabaseConnectivity extends BaseClass
 		 logger.info("Is_Card_ref:"+Is_Card_Ref);
 		 getTollInfo.info("Is_Card_ref:"+Is_Card_Ref);
 		 FastagVehicleMaster=GetFastagVehicleMaster.getFastagVehicleMaster();
+		 GetOperatorList=getOperatorDetails();
+		 System.out.println(GetOperatorList);
+		 ETCAutoLoginCheck e=new ETCAutoLoginCheck();
 	}
 	
 	
@@ -172,7 +179,7 @@ public class DatabaseConnectivity extends BaseClass
 	
 	
 private static void warning(String string) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 //	public static String getWIM_COM_NO() {
@@ -416,7 +423,7 @@ private static void warning(String string) {
             
         
 	}
-	 public static String getEmployeeDetails() throws SQLException
+	 public static ArrayList<String> getOperatorDetails() throws SQLException
      {
 		 
 		 String sql="SELECT *\r\n"
@@ -424,21 +431,31 @@ private static void warning(String string) {
 		 		+ "where (T.STATUS = 'A'\r\n"
 		 		+ "   AND T.EMPLOYEE_ID = D.EMPLOYEE_ID\r\n"
 		 		+ "   AND D.TOLL_STATUS = 'A'\r\n"
-		 		+ "    AND D.TOLL_ID = "+Lane_ID+"\r\n"
+		 		+ "    AND D.TOLL_ID = "+Toll_ID+"\r\n"
 		 		+ "    AND k.DESIGNATION_NAME ='OPERATOR'\r\n"
 		 		+ "    and t.password='93279e3308bdbbeed946fc965017f67a'\r\n"
 		 		+ "    and t.designation_id=k.designation_id\r\n"
 		 		+ "   AND D.VALID_TILL_DATE > SYSDATE )";
 			Statement statement = connection.createStatement();
 	        ResultSet resultSet = statement.executeQuery(sql);
-	        ArrayList <String>PaymentTypes=new  ArrayList<String>();
+	        ArrayList <String>OperatorList=new  ArrayList<String>();
 	        String Login_ID="";
 	        while (resultSet.next()) {
 	            // Retrieve data from each row for the specific column
 	             Login_ID = resultSet.getString("Login_ID"); // Replace with the actual column name
-	            PaymentTypes.add(Login_ID);
+	             OperatorList.add(Login_ID);
 	        }
-	        return Login_ID;
+	        GetWimSubClass example = new GetWimSubClass();
+
+
+	         example.setItemList(OperatorList);
+
+	       
+	         ArrayList<String> retrievedList = example.getItemList();
+
+	      
+	         return retrievedList;
+	        
      }
 	public  String getSysdate() throws SQLException
 	{
