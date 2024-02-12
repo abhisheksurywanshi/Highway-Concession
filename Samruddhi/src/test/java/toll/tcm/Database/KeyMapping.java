@@ -226,7 +226,7 @@ public class KeyMapping extends BaseClass
 //    	 Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
 //    	 Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@"+LaneIPAddress+":1521:XE", "TASAWADE_DB", "CaPitAL_36_iTS");
     
-    	 String sql = "select * from mvw_keyboard_keymapper v where v.vehicle_class is not null AND (V.METHOD_OF_PAYMENT='X' or V.METHOD_OF_PAYMENT='58')";
+    	 String sql = "select * from mvw_keyboard_keymapper v where v.vehicle_class is not null AND (V.METHOD_OF_PAYMENT>35 or V.METHOD_OF_PAYMENT=00)";
 	        
 	       
 	        
