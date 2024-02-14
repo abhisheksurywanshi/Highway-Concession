@@ -21,7 +21,7 @@ public class COM_Setup extends BaseClass {
 		  
 			ExtentTest COM_Setup=extent.createTest("COM_Setup");
 
-//		     System.out.println(d.getAVC_COM()+"LL");
+//		     System.out.println(d.getAVC_COM()+"LL" );
 			if(Is_Profile_IP.contains("N"))
 			{
 			    portIdentifierForAVC = CommPortIdentifier.getPortIdentifier(COMPortNameForAVC);
