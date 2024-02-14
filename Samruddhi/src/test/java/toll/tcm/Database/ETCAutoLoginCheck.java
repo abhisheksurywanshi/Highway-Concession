@@ -14,7 +14,8 @@ public class ETCAutoLoginCheck extends BaseClass
 //		DatBasepassword = XEPassword;
 //		Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
 //		
-		
+		try 
+		{
 			if(Is_ETCAutoLogin.contains("Y"))
 			{
 				for(int i=0;i<GetOperatorList.size();i++)
@@ -25,10 +26,19 @@ public class ETCAutoLoginCheck extends BaseClass
 					{
 						IsAutoLane=true;
 						
-						System.out.println("IT is autolane");
+						logger.info(" is autolane");
 					}
 				}
 			}
+		}catch(java.lang.NullPointerException e)
+		{
+			
+				IsAutoLane=false;
+				
+				logger.info(" is not autolane");
+			
+		}
+			
 		
 		
 		

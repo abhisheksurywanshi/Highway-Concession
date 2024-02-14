@@ -76,7 +76,7 @@ public class GetExemptType extends BaseClass{
 	     {
 	    	 ArrayList <String>wIMSubClassTruck=new ArrayList<String>();
 //	    	 Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
-	    	 String sql = "select * from mvw_keyboard_keymapper v where v.vehicle_class is not null AND (V.METHOD_OF_PAYMENT='58' or V.METHOD_OF_PAYMENT='X')";
+	    	 String sql = "select * from mvw_keyboard_keymapper v where v.vehicle_class is not null AND (V.METHOD_OF_PAYMENT>'35' or V.METHOD_OF_PAYMENT='X')";
 		        
 		       
 		        
@@ -417,6 +417,38 @@ public class GetExemptType extends BaseClass{
 		    	 		+ ") h\r\n"
 		    	 		+ "WHERE available_exempt = 1\r\n"
 		    	 		+ "";
+		        
+		       
+		        
+		        Statement statement = connection.createStatement();
+		        ResultSet resultSet = statement.executeQuery(sql);
+
+		        while (resultSet.next()) {
+		        
+		            String IsRemark = resultSet.getString("Extra4"); // Replace with the actual column name
+		            String Exempt_Type = resultSet.getString("Exempt_Type");
+		            IsCapture.put(Exempt_Type, IsRemark);
+		            
+		            
+		        }
+		        resultSet.close();
+	            statement.close();
+	            KeyMapping example = new KeyMapping();
+
+
+	            example.setItemList(IsCapture);
+
+	          
+	            Map<String, String>retrievedList = example.getItemList();
+
+	         
+	            return retrievedList;
+	     }
+	   public static Map<String, String> isExemptRemarkFlagKent() throws SQLException
+	     {
+		   Map<String, String> IsCapture = new HashMap<String, String>();
+//	    	 Connection connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
+	    	 String sql ="select * from mvw_kent_exempt_type_master k ";
 		        
 		       
 		        

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,6 +13,7 @@ import org.openqa.selenium.Keys;
 import com.aventstack.extentreports.ExtentTest;
 
 import toll.tcm.Database.GetExemptType;
+import toll.tcm.Database.KeyMapping;
 import toll.tcm.Hardware.*;
 import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
@@ -102,17 +104,38 @@ public class ExemptTransaction extends BaseClass {
 		}
 		parent = driver.getWindowHandle();
 		mainWindowToCurrentWindow(driver, parent);
-		logger.info("Remark flag is:"+allVehicleIsExemptRemarkFlags.get(ExemptCodeToClass(Vclass)).get(Exempt_Type));
-		if(Is_Exempt_Remark.contains("Y"))
-		{
-			if(allVehicleIsExemptRemarkFlags.get(ExemptCodeToClass(Vclass)).get(Exempt_Type).contains("Y"))
-			{
-				driver.findElementByName("* Press Enter To Continue. ").sendKeys(Exempt_Type + VRN.substring(6));
-				driver.getKeyboard().sendKeys(Keys.ENTER);
-			}
-			
-		}
+//		logger.info("Remark flag is:"+allVehicleIsExemptRemarkFlags.get(ExemptCodeToClass(Vclass)).get(Exempt_Type));
+//		if(Is_Exempt_Remark.contains("Y"))
+//		{
+//			if(allVehicleIsExemptRemarkFlags.get(ExemptCodeToClass(Vclass)).get(Exempt_Type).contains("Y"))
+//			{
+//				driver.findElementByName("* Press Enter To Continue. ").sendKeys(Exempt_Type + VRN.substring(6));
+//				driver.getKeyboard().sendKeys(Keys.ENTER);
+//			}
+//			
+//		}
 		
+		String[] Remark=IsExemptRemarkKent.keySet().toArray(new String[0]);
+		for (int i = 0; i < Remark.length; i++) {
+	           String key = Remark[i];
+	           String value = IsExemptRemarkKent.get(key);
+	           try
+	           {
+	        	   if(key.contains(Exempt_Type)&&value.contains("Y"))
+	 	          {
+	 	        	  driver.findElementByName("* Press Enter To Continue. ").sendKeys(Exempt_Type + VRN.substring(6));
+	 					driver.getKeyboard().sendKeys(Keys.ENTER);
+	 	        	  logger.info("Exempt Type: " + key + ", Is Remark: " + value);
+	 	          }
+	           }catch(java.lang.NullPointerException e)
+	           {
+	        	   continue;
+	           }
+	         
+	           
+	          
+	           
+	       }
 		parent = driver.getWindowHandle();
 		mainWindowToCurrentWindow(driver, parent);
 		ExplicitWait(By.name("Vehicle pending in queue - 1"));

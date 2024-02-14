@@ -92,6 +92,7 @@ public class StaticVariables extends JFrame {
 	protected static String[] keysArrayForOtherCashKeys;
 	protected static String[] keysArrayForTolWimClassDetail;
 	protected static String[] keysArrayForIsOverWeightApplicable;
+	protected static String[] keysArrayForIsExemptRemarkKent;
 	protected static ArrayList paymentTypes;
 	protected static ArrayList <String> ClassArrayForTollWimClassDetail =new ArrayList<String>();
 	protected static ArrayList <Integer> ToWeight =new ArrayList<Integer>();
@@ -131,11 +132,11 @@ public class StaticVariables extends JFrame {
 	protected static Map<String, String> MAV6IsExemptRemarkFlags = new HashMap<String, String>();
 	protected static Map<String, String> OSVIsExemptRemarkFlags = new HashMap<String, String>();
 	protected static Map<String, Map<String, String>> allVehicleIsExemptRemarkFlags = new HashMap<String, Map<String, String>>();
+	protected static Map<String, String> IsExemptRemarkKent = new HashMap<String, String>();
 	
-	
-	protected static Map<String, String> CashIsReferenceFLags = new HashMap<String, String>();
-	protected static Map<String, String> CardIsReferenceFLags = new HashMap<String, String>();
-	protected static Map<String, String> WalletIsReferenceFLags = new HashMap<String, String>();
+	protected static Map<String, String> CashIsReferenceFlags = new HashMap<String, String>();
+	protected static Map<String, String> CardIsReferenceFlags = new HashMap<String, String>();
+	protected static Map<String, String> WalletIsReferenceFlags = new HashMap<String, String>();
 	protected static Map<String, Map<String, String>> allReferenceFlags = new HashMap<String, Map<String, String>>();
 	
 	protected static ArrayList <String>VehicleCDWiseExemptType=new ArrayList<String>();

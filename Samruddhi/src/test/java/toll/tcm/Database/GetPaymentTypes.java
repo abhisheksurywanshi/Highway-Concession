@@ -124,17 +124,17 @@ public class GetPaymentTypes extends BaseClass  {
 			 String paymentype=paymentTypes.get(i).toString();
 			 if(paymentype.contains("CASH"))
 			 {
-				 CashIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 CashIsReferenceFlags=getPaymentSubTypes(paymentype);
 				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
 			 }
 			 else if(paymentype.contains("CARD"))
 			 {
-				 CardIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 CardIsReferenceFlags=getPaymentSubTypes(paymentype);
 				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
 			 }
 			 else if(paymentype.contains("WALLET"))
 			 {
-				 WalletIsReferenceFLags=getPaymentSubTypes(paymentype);
+				 WalletIsReferenceFlags=getPaymentSubTypes(paymentype);
 				 allReferenceFlags.put(paymentype, getPaymentSubTypes(paymentype));
 			 }
 	        }

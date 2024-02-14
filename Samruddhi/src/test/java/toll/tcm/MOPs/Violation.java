@@ -42,28 +42,28 @@ public class Violation extends BaseClass
 			LastTransaction=DefaultTransactionNumber.getDefaultTransationNumber();
 		}
 		GetAVCData getdata=new GetAVCData();
-//		String LastTransaction=driver.findElementByAccessibilityId("ListViewSubItem-0").getText().toString();
+		String LastTransaction=driver.findElementByAccessibilityId("ListViewSubItem-0").getText().toString();
 		PC_Send P =new PC_Send();
 //		if(Toll_Name.contains("Pal"))
 //		{
-//			ExplicitWait(By.name("Vehicle pending in queue - 1"));
+			ExplicitWait(By.name("Vehicle pending in queue - 1"));
 //		}
         logger.info("PC Send Time");
 //        ExplicitWait(By.name("Vehicle pending in queue - 1"));
 		String timeStamp=new SimpleDateFormat("yy.MM.dd.HH.mm.ss").format(new Date());
 		String [] VClass=new String[14];
 		
-//		VClass[0]="Vehicle Class";
-//		VClass[1]="CAR/JEEP";
-//		VClass[2]="LCV";
-//		VClass[3]="TRUCK";
-//		VClass[4]="BUS";
-//		VClass[5]="MAV 3";
-//		VClass[6]="MAV 4";
-//		VClass[7]="MAV 5";
-//		VClass[8]="MAV 6";
-//		VClass[9]="OSV";
-//		VClass[10]="LCV";
+		VClass[0]="Vehicle Class";
+		VClass[1]="CAR/JEEP";
+		VClass[2]="LCV";
+		VClass[3]="TRUCK";
+		VClass[4]="BUS";
+		VClass[5]="MAV 3";
+		VClass[6]="MAV 4";
+		VClass[7]="MAV 5";
+		VClass[8]="MAV 6";
+		VClass[9]="OSV";
+		VClass[10]="LCV";
 		VClass[11]="TRACTOR";
 		VClass[12]="AUTO";
 		VClass[13]="BIKE";
@@ -73,7 +73,7 @@ public class Violation extends BaseClass
 		
 		DecimalFormat twodigits = new DecimalFormat("00");
 	    String t="";
-		for(int i=11;i<VClass.length;i++)
+		for(int i=1;i<13;i++)
 		{
 			System.out.println("returnVehicleClass :" + VClass[randomClass] );
 			System.out.println("VClass: "+VClass[i]);
@@ -160,7 +160,7 @@ public class Violation extends BaseClass
 		}
 		catch(org.openqa.selenium.NoSuchElementException v)
 		{
-			Thread.sleep(5000);
+//			Thread.sleep(5000);
 			String LatestTransaction=driver.findElementByAccessibilityId("ListViewSubItem-0").getText().toString();
 			System.out.println("first transactio endswith: "+LastTransaction.substring(LastTransaction.length()-1));
 			System.out.println("last transaction ends with: "+LatestTransaction.substring(LatestTransaction.length()-1));

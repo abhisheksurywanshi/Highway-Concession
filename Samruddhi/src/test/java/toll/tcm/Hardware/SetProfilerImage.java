@@ -127,8 +127,13 @@ public class SetProfilerImage extends BaseClass{
             }
             
             attempt++;
+            if(attempt>100000)
+            {
+            	logger.info("failed to find image ");
+            	break;
+            }
             } 
-//        
+        
         }
 	
 

@@ -138,7 +138,7 @@ public class KeyMapping extends BaseClass
 	       keysArrayForIsOverWeightApplicable=Is_OverWeight_Applicable.isOverWeightApplicable().keySet().toArray(new String[0]);
 	       System.out.println("Done=======");
 	       GetExemptType.ClassesIsCaptureFlags();
-	       GetExemptType.ClassesIsExemptRemarkFlags();
+//	       GetExemptType.ClassesIsExemptRemarkFlags();
 	       paymentTypes=GetPaymentTypes.getPaymentTypes();
 	       
 	       GetPaymentTypes.IsReference();
@@ -169,14 +169,26 @@ public class KeyMapping extends BaseClass
 	        logger.info("\n"+output);
 	        KeyMappingg.info("\n"+output);
 	        
-	        String flags1=allVehicleIsExemptRemarkFlags.toString();
-		       String output1 = flags1.replaceAll("},", "},\n");
-		       	logger.info("Is ExemptRemark Flags");
-
-		        // Print the formatted string
-		        logger.info("\n"+output1);
-		        KeyMappingg.info("\n"+output1);
+//	        String flags1=allVehicleIsExemptRemarkFlags.toString();
+//		       String output1 = flags1.replaceAll("},", "},\n");
+//		       	logger.info("Is ExemptRemark Flags");
+//
+//		        // Print the formatted string
+//		        logger.info("\n"+output1);
+//		        KeyMappingg.info("\n"+output1);
 		        
+	        IsExemptRemarkKent=GetExemptType.isExemptRemarkFlagKent();
+	        keysArrayForIsExemptRemarkKent=GetExemptType.isExemptRemarkFlagKent().keySet().toArray(new String[0]);
+			  logger.info("IsExemtRemarkKent Mapping:");
+			  KeyMappingg.info("IsExemptRemarkKent KeyMapping:");
+		       for (int i = 0; i < keysArrayForIsExemptRemarkKent.length; i++) {
+		           String key = keysArrayForIsExemptRemarkKent[i];
+		           String value = IsExemptRemarkKent.get(key);
+		           
+		           logger.info("Exempt Type :" + key + ", Flag: " + value);
+		           KeyMappingg.info("Exempt Type :" + key + ", Flag: " + value);
+		           
+		       }
 		        String flags2=allReferenceFlags.toString();
 			       String output2 = flags2.replaceAll("},", "},\n");
 			       	logger.info("Is Reference Flags");
