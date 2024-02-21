@@ -9,10 +9,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import toll.tcm.Database.DatabaseConnectivity;
+import toll.tcm.MOPs.Violation;
 import toll.tcm.testCases.*;
 public class DefaultTransactionNumber extends BaseClass{
-
+	static Logger logger=LogManager.getLogger(DefaultTransactionNumber.class);
 	public static void main(String[] args) {
 		
 //		try {
@@ -55,7 +59,7 @@ public class DefaultTransactionNumber extends BaseClass{
 //		{
 //			
 //		}
-		System.out.println(Lane_CD);
+		logger.info(Lane_CD);
 		String lane_no=Lane_CD.substring(Lane_CD.length()-2);
 		return Transaction+"0"+toGetCurrentShift()+lane_no+"00000";
 	}
@@ -72,7 +76,7 @@ public class DefaultTransactionNumber extends BaseClass{
            currentShiftAlias = resultSet.getString("shift"); // Replace with the actual column name
            
            // Process the retrieved data
-           System.out.println("Shift:"+currentShiftAlias);
+           logger.info("Shift:"+currentShiftAlias);
            break;
            
        }

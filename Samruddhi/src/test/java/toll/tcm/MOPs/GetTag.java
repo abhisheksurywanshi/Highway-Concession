@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -24,7 +26,8 @@ import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
 public class GetTag 	extends BaseClass
 {
-	
+	static Logger logger=LogManager.getLogger(GetTag.class);
+
 	public static void main(String[] args) {
 		
 //		    DecimalFormat twodigits = new DecimalFormat("00");		
@@ -114,7 +117,7 @@ public class GetTag 	extends BaseClass
 
 //			 String data = "58585858585858585858585811"+TagClass+",34161FA8203288AC816,E2003412012A1B00025EF59E060B00";
 
-		 System.out.println("data======== "+data);
+		 logger.info(data);
 
 		 // Convert the data to bytes and send it through the output stream
 //		 inputStreamForTag = socket.getInputStream();
@@ -261,13 +264,15 @@ public class GetTag 	extends BaseClass
     	        } 
     	     logger.info("tag class searching..");
     	     String TagClass1=driver.findElementByAccessibilityId("ListViewSubItem-4").getText().toString();   //SNC
-    	     logger.info("class found now"+TagClass1+" Tag getting AVC..");
-//    	     PC_Send P=new PC_Send();
+    	     logger.info("class found now "+TagClass1+" Tag getting AVC..");
+    	     PC_Send P=new PC_Send();
+//    	     Thread.sleep(500);
+    	     logger.info("PC send time");
 //    		 COM_Setup.IPAVCSetup99(TagClass1);
-//    	     COM_Setup.COMAVCSetup99();
+    	     COM_Setup.COMAVCSetup99();
 //    	     ExplicitWait(By.xpath("//Pane[@Name=':'][@AutomationId='picBarrier_C']"));
-    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
-		    	logger.info(getdata.getAVCData(TagClass1)+" :outputstream ");
+//    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
+//		    	logger.info(getdata.getAVCData(TagClass1)+" :outputstream ");
 //    	     outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes()); 
     	     logger.info("Tag End AVC");
 //    	     Thread.sleep(5000);
@@ -285,8 +290,9 @@ public class GetTag 	extends BaseClass
     	     }
     	     catch(TimeoutException e)
     	     {
-    	    	 logger.info("waiting for catch block :Vehicle pending in queue - 0");
+    	    	 logger.info("waiting for catch block :Vehicle pending in queue - 1");
     	    	 ExplicitWaitForTag(By.name("Vehicle pending in queue - 1"));
+    	    	 logger.warn("Violation is occure");
     	    	 
     	    	 if(Non_Default)
     	         {

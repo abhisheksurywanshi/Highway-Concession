@@ -3,10 +3,15 @@ package toll.tcm.utilities;
 import java.awt.AWTException;
 import java.awt.Robot;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import toll.tcm.testCases.BaseClass;
 
 public class RandomOtherCashKeySelector extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(RandomOtherCashKeySelector.class);
+
 	public  RandomOtherCashKeySelector() throws AWTException
 	{
 		String[] keysArray = OtherCashKeys.keySet().toArray(new String[0]);

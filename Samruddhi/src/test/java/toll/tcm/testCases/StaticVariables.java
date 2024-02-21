@@ -44,7 +44,7 @@ public class StaticVariables extends JFrame {
 	public static String XEPassword=readconfig.getXEPassword();
 	
 	public static WebDriverWait wait;
-	public static Logger logger;
+
 	public static DesiredCapabilities capabilities;
 	public static WindowsDriver driver;
 	static String AvcWindow;

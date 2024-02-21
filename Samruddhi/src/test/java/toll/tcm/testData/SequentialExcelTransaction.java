@@ -2,10 +2,15 @@ package toll.tcm.testData;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import toll.tcm.MOPs.*;
 import toll.tcm.testCases.*;
 public class SequentialExcelTransaction extends BaseClass 
 {
+	static Logger logger=LogManager.getLogger(SequentialExcelTransaction.class);
+
 	public SequentialExcelTransaction() throws Exception {
 		int total=Seq.numberoftransaction().length;
 		int sum=0;

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -19,6 +21,8 @@ import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
 
 public class ExemptTransaction extends BaseClass {
+	static Logger logger=LogManager.getLogger(ExemptTransaction.class);
+
 	public static void randomExempt() throws IOException, InterruptedException, Exception {
 		ExtentTest ExemptTransaction = extent.createTest("ExemptTransaction");
 		Robot robot = new Robot(); // lblClass
@@ -59,7 +63,7 @@ public class ExemptTransaction extends BaseClass {
 		try {
 			ExplicitWait(By.name("Select Exempt Type"));
 			driver.findElement(By.name("Select Exempt Type")).click();
-			System.out.println("TRY BLOCK FOR EXEMPT TYPE SELECTION IS EXECUTE");
+			logger.info("TRY BLOCK FOR EXEMPT TYPE SELECTION IS EXECUTE");
 		} catch (Exception e) {
 //			driver.getKeyboard().sendKeys(Keys.chord(Keys.ALT,Keys.TAB));
 			robot.keyPress(18);
@@ -69,7 +73,7 @@ public class ExemptTransaction extends BaseClass {
 			ExplicitWait(By.name("Select Exempt Type")); // Window[@Name='Exempt Types
 															// List'][@AutomationId='frmExemptType']//Edit[@AutomationId='txtExemptSequeneceNo']
 			driver.findElement(By.name("Select Exempt Type")).click();
-			System.out.println("CATCH BLOCK FOR EXEMPT TYPE SELECTION IS EXECUTE");
+			logger.info("CATCH BLOCK FOR EXEMPT TYPE SELECTION IS EXECUTE");
 
 		}
 		int RandomExemptType = BaseClass.randomGenerator(1, 1);
@@ -144,14 +148,14 @@ public class ExemptTransaction extends BaseClass {
 		ExemptTransaction.info("Barrier UP Time");
 		String TagClass1 = driver.findElementByAccessibilityId("ListViewSubItem-4").getText().toString();
 
-//    	PC_Send p=new PC_Send();
-//    	Thread.sleep(500);
-//    	logger.info("PC Send Time");
+    	PC_Send p=new PC_Send();
+    	Thread.sleep(500);
+    	logger.info("PC Send Time");
 //    	outputStreamForAVC.write(getdata.getAVCData(TagClass1).getBytes());
 //    	COM_Setup.IPAVCSetup99(Vclass);
-//		COM_Setup.COMAVCSetup99();
-		outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
-		logger.info(getdata.getAVCData(Vclass) + " :outputstream ");
+		COM_Setup.COMAVCSetup99();
+//		outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
+//		logger.info(getdata.getAVCData(Vclass) + " :outputstream ");
 		logger.info(TagClass1 + " AVC is send");
 		ExemptTransaction.info(TagClass1 + " AVC is send");
 		logger.info(TagClass1 + " Barrier Down Time");
@@ -161,6 +165,7 @@ public class ExemptTransaction extends BaseClass {
 //    		Fluentwait(driver.findElementByName("Vehicle pending in queue - 0"), 30, 6);
 			SetProfilerImage s = new SetProfilerImage(TagClass1);
 			ImageVerification i = new ImageVerification();
+			ExemptImageVerification i1=new ExemptImageVerification();
 
 		} catch (Exception t) {
 			try {
@@ -179,6 +184,7 @@ public class ExemptTransaction extends BaseClass {
 //        		Fluentwait(driver.findElementByName("Vehicle pending in queue - 0"),10, 1);
 				SetProfilerImage s = new SetProfilerImage(TagClass1);
 				ImageVerification i1 = new ImageVerification();
+				ExemptImageVerification i2=new ExemptImageVerification();
 			}
 
 		}
@@ -194,8 +200,8 @@ public class ExemptTransaction extends BaseClass {
 //		RandomClassSelector.randomExemptTypeSelector();
 		for (int i = 0; i < ExemptTypes; i++) {
 
-			System.out.println(Exempt_Type);
-			System.out.println(ExemptType[i] + "===");
+			logger.info(Exempt_Type);
+			logger.info(ExemptType[i] + "===");
 			if (ExemptType[i].contains(GetExemptType.getExemptTypeFromExcel(Exempt_Type).toString())) {
 
 				driver.findElementByAccessibilityId("txtExemptSequeneceNo").sendKeys(String.valueOf(i + 1));
@@ -242,7 +248,7 @@ public class ExemptTransaction extends BaseClass {
 	}
 
 	public static int ExemptTypeFinder(String VClass) {
-		System.out.println("CLASS IS :" + VClass);
+		logger.info("CLASS IS :" + VClass);
 		if (VClass.contains("CAR")) {
 			return AvailableExemptCar.size();
 		} else if (VClass.contains("LCV")) {
@@ -276,7 +282,7 @@ public class ExemptTransaction extends BaseClass {
 	}
 
 	public static String ExemptCodeToClass(String VClass) {
-		System.out.println("CLASS IS :" + VClass);
+		logger.info("CLASS IS :" + VClass);
 		if (VClass.contains("CAR")) {
 			return "04";
 		} else if (VClass.contains("LCV")) {

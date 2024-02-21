@@ -2,9 +2,13 @@ package toll.tcm.utilities;
 
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 import toll.tcm.testCases.*;
 public class SelectRandomSubClass extends BaseClass {
+
+	static Logger logger=LogManager.getLogger(SelectRandomSubClass.class);
 
 	public static void getRandomSelection() throws SQLException
 	{
@@ -83,7 +87,7 @@ public class SelectRandomSubClass extends BaseClass {
 		{
 			if(mav4==1)
 			{
-				System.out.println("MAV4 SUB CLASS:"+mav4);
+				logger.info("MAV4 SUB CLASS:"+mav4);
 			}
 			else 
 			{
@@ -91,22 +95,22 @@ public class SelectRandomSubClass extends BaseClass {
 			        if(randomsubClass==1)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD1);
-			        	System.out.println("MAV4 SUB CLASS:"+mav4);
+			        	logger.info("MAV4 SUB CLASS:"+mav4);
 			        }
 			        else if(randomsubClass==2)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD2);
-			        	System.out.println("MAV4 SUB CLASS:"+mav4);
+			        	logger.info("MAV4 SUB CLASS:"+mav4);
 			        }
 			        else if(randomsubClass==3)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD3);
-			        	System.out.println("MAV4 SUB CLASS:"+mav4);
+			        	logger.info("MAV4 SUB CLASS:"+mav4);
 			        }
 			        else if(randomsubClass==4)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD4);
-			        	System.out.println("MAV4 SUB CLASS:"+mav4);
+			        	logger.info("MAV4 SUB CLASS:"+mav4);
 			        }
 			        driver.getKeyboard().sendKeys(Keys.ENTER);
 			        String subclass=driver.findElementByAccessibilityId("lblClass").getText().toString();
@@ -117,7 +121,7 @@ public class SelectRandomSubClass extends BaseClass {
 		{
 			if(mav5==1)
 			{
-				System.out.println("MAV5 SUB CLASS:"+mav5);
+				logger.info("MAV5 SUB CLASS:"+mav5);
 			}
 			else 
 			{
@@ -125,22 +129,22 @@ public class SelectRandomSubClass extends BaseClass {
 			        if(randomsubClass==1)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD1);
-			        	System.out.println("MAV5 SUB CLASS:"+mav5);
+			        	logger.info("MAV5 SUB CLASS:"+mav5);
 			        }
 			        else if(randomsubClass==2)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD2);
-			        	System.out.println("MAV5 SUB CLASS:"+mav5);
+			        	logger.info("MAV5 SUB CLASS:"+mav5);
 			        }
 			        else if(randomsubClass==3)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD3);
-			        	System.out.println("MAV5 SUB CLASS:"+mav5);
+			        	logger.info("MAV5 SUB CLASS:"+mav5);
 			        }
 			        else if(randomsubClass==4)
 			        {
 			        	driver.getKeyboard().sendKeys(Keys.NUMPAD4);
-			        	System.out.println("MAV5 SUB CLASS:"+mav5);
+			        	logger.info("MAV5 SUB CLASS:"+mav5);
 			        }
 			        driver.getKeyboard().sendKeys(Keys.ENTER);
 			        String subclass=driver.findElementByAccessibilityId("lblClass").getText().toString();

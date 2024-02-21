@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -16,10 +18,12 @@ import toll.tcm.Hardware.GetAVCData;
 import toll.tcm.Hardware.ImageVerification;
 import toll.tcm.MOPs.*;
 import toll.tcm.testCases.*;
+import toll.tcm.testData.SequentialExcelTransaction;
 public class ClassVRNSelector extends BaseClass {
 	
 	
-	
+	static Logger logger=LogManager.getLogger(ClassVRNSelector.class);
+
 	
 	public ClassVRNSelector(String Class,String VRN) throws InterruptedException, IOException, AWTException, SQLException {
 		getdata = new GetAVCData();

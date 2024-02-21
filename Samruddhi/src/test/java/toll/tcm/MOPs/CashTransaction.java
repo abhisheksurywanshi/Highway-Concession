@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -26,6 +28,7 @@ import java.io.OutputStream;
 import java.sql.SQLException;
 
 public class CashTransaction extends BaseClass {
+	static Logger logger=LogManager.getLogger(CashTransaction.class);
 
 	public static void randomCashTransaction() throws IOException, InterruptedException, SQLException, AWTException {
 //			try
@@ -164,7 +167,7 @@ public class CashTransaction extends BaseClass {
 						}
 					} else {
 						String value = entry.getValue();
-						System.out.println("Key: " + key + ", Value: " + value);
+						logger.info("Key: " + key + ", Value: " + value);
 					}
 
 				}
@@ -244,15 +247,15 @@ public class CashTransaction extends BaseClass {
 			logger.info("Barrier up time");
 			CashTransaction.info("Barrier up time");
 //					        	System.out.println(getdata.getAVCData(Vclass));
-//					        	PC_Send obj=new PC_Send();
-//					        	logger.info("PC Send Time");
-//					        	CashTransaction.info("PC Send Time");
-			outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
-			logger.info(getdata.getAVCData(Vclass) + " :outputstream ");
+					        	PC_Send obj=new PC_Send();
+					        	logger.info("PC Send Time");
+					        	CashTransaction.info("PC Send Time");
+					        	COM_Setup.COMAVCSetup99();
+//			logger.info(getdata.getAVCData(Vclass) + " :outputstream ");
 //						    	COM_Setup.COMAVCSetup(Vclass);
 //						    	Thread.sleep(3000);
 
-			i = new ImageVerification();
+			
 			logger.info(Vclass + " AVC is send");
 			CashTransaction.info(Vclass + " AVC is send");
 			logger.info(Vclass + " Barrier is Down");
@@ -260,6 +263,7 @@ public class CashTransaction extends BaseClass {
 			ExplicitWait(By.name("Vehicle pending in queue - 0"));
 			logger.info("Vehicle pending in queue - 0");
 			CashTransaction.info("Vehicle pending in queue - 0");
+			i = new ImageVerification();
 			s = new SetProfilerImage(Vclass);
 			BaseClass.mainWindowToCurrentWindow(driver, driver.getWindowHandle());
 //					    	}

@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -18,6 +20,8 @@ import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
 
 public class Tow extends BaseClass{
+	static Logger logger=LogManager.getLogger(Tow.class);
+
 	public static void tow(int trNo) throws IOException, SQLException, AWTException, InterruptedException {
 		
 		GetAVCData getdata = new GetAVCData();

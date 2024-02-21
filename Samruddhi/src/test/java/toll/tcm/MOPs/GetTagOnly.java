@@ -4,6 +4,8 @@ import java.awt.Robot;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -15,7 +17,8 @@ import toll.tcm.testCases.BaseClass;
 import toll.tcm.utilities.DefaultTransactionNumber;
 
 public class GetTagOnly extends BaseClass{
-	
+	static Logger logger=LogManager.getLogger(GetTagOnly.class);
+
 	public  void getTagData() throws Exception
 	{
 		LastTransaction= DefaultTransactionNumber.getDefaultTransationNumber();

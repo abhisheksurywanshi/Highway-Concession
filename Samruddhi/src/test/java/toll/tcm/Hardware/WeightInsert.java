@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 import gnu.io.CommPortIdentifier;
@@ -16,6 +18,8 @@ import toll.tcm.testCases.*;
 
 public class WeightInsert extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(WeightInsert.class);
+
 	public static void insertWeight() throws Exception
 	{
 		

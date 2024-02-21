@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
@@ -21,6 +23,8 @@ import toll.tcm.utilities.SelectRandomSubClass;
 
 public class SequentialWeightTransaction extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(SequentialWeightTransaction.class);
+
 	public static void SequentialWeightTransaction() throws Exception
 	{
 		Robot robot=new Robot();

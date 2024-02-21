@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.aventstack.extentreports.ExtentTest;
 
 import gnu.io.CommPortIdentifier;
@@ -16,9 +19,10 @@ import toll.tcm.Database.*;
 import toll.tcm.testCases.*;
 
 public class COM_Setup extends BaseClass {
-
+	static Logger logger=LogManager.getLogger(COM_Setup.class);
 	public  COM_Setup() throws Exception {
-		  
+		
+
 			ExtentTest COM_Setup=extent.createTest("COM_Setup");
 
 //		     System.out.println(d.getAVC_COM()+"LL");

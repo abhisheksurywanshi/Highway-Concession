@@ -74,12 +74,12 @@ public class Transaction extends BaseClass implements Runnable
 		
 //		LastTransaction= DefaultTransactionNumber.getDefaultTransationNumber();
 //		System.out.println(":::::::::c "+LastTransaction);
-		for(int i=1;i<=25;i++)
+		for(int i=1;i<=1;i++)
 		{
 //
 //		ManualWeight.manualWeightTransaction(BaseClass.randomGenerator(0, 61001));
 //		SequentialWeightTransaction.SequentialWeightTransaction();
-//		ExemptTransaction.randomExempt();
+		ExemptTransaction.randomExempt();
 //		driver.getKeyboard().sendKeys(Keys.F5);
 //		driver.findElementByAccessibilityId("txtVehicleNo").sendKeys("MH01"+"AA5255");	
 //		ManualWeight.manualInsertWeight(50000);
@@ -88,18 +88,19 @@ public class Transaction extends BaseClass implements Runnable
 //		ManualWeight.OverWeightLogic(Vclass, 50000);
 //		System.out.println("DDDD");
 //			WeightInsert.insertWeight();
-//			CashTransaction.randomCashTransaction();		
+			CashTransaction.randomCashTransaction();		
 //			ExemptTransaction.randomExempt(); 
-//			FreeConvoy.freeConvoy(1);	
+			FreeConvoy.freeConvoy(1);	
 			
-			ExemptTransaction.randomExempt(); 
-//			Violation.randomViolation();		
-//			Violation.randomViolation();			
-//		    GetTag g=new GetTag();
+//			ExemptTransaction.randomExempt(); 
+			Violation.randomViolation();		
+//			Violation.randomViolation();	
+//			FreeConvoy.freeConvoy(1);	
+		    GetTag g=new GetTag();
 //		    WeightInsert.insertWeight();/
-//		    g.getTagData();
+		    g.getTagData();
 //		    PaidConvoy.paidConvoy(3);
-//		    NSV.getNonSchedualVehicleKey();
+		    NSV.getNonSchedualVehicleKey();
 //		    Tow.tow(3);
 		    
 	}

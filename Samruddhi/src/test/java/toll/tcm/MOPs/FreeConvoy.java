@@ -7,6 +7,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -15,14 +17,15 @@ import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
 public class FreeConvoy extends BaseClass
 {
-	
+	static Logger logger=LogManager.getLogger(FreeConvoy.class);
+
 	public static void freeConvoy(int trNo) throws Exception
 	{
 //		int port=Integer.valueOf(5001);
 //		Socket socket = new Socket(tagReaderIPaddress, port);
 
 //		  OutputStream outputStreamForAVC = socket.getOutputStream();
-		
+		String LastClass="";
 		VClassForFrCnvy=new String[14];
 		if(trNo==1)
 		{
@@ -39,10 +42,10 @@ public class FreeConvoy extends BaseClass
 				ExplicitWait(By.name("convoy mode started."));
 			}
 			
-			System.out.println("this block is perform tr==1");
+//			System.out.println("this block is perform tr==1");
 			
 				PC_Send p= new PC_Send();
-		        
+		        logger.info("PC send time");
 //		        Thread.sleep(200);
 				timeStamp=new SimpleDateFormat("yy.MM.dd.HH.mm.ss").format(new Date());
 				
@@ -63,7 +66,7 @@ public class FreeConvoy extends BaseClass
 				VClassForFrCnvy[13]="BIKE";
 				
 				randomFreeConvoy=randomGenerator(1, VClassForFrCnvy.length-1);
-				System.out.println(VClassForFrCnvy[randomFreeConvoy]+" rrrrrrrr");
+			logger.info(VClassForFrCnvy[randomFreeConvoy]+" Class for ");
 				twodigits = new DecimalFormat("00");
 			    AVCCLASS="";
 				for(int j=1;j<VClassForFrCnvy.length;j++)
@@ -78,6 +81,7 @@ public class FreeConvoy extends BaseClass
 					{
 //						System.out.println("Match Found");
 						AVCCLASS=AVCRandom;
+						LastClass=VClassForFrCnvy[randomFreeConvoy];
 						break;
 					}
 					
@@ -92,9 +96,9 @@ public class FreeConvoy extends BaseClass
 		        outputStreamForAVC.write(dataBytes);
 		       
 //		        System.out.println(toReturnAVCClass+" ccccccc");
-//				COM_Setup.COMAVCSetup99();
+				COM_Setup.COMAVCSetup99();
 				
-				outputStreamForAVC.write(toReturnAVCClass.getBytes());
+//				outputStreamForAVC.write(toReturnAVCClass.getBytes());
 //				hexData = "03";         
 //		        dataBytes = hexStringToByteArray(hexData);
 //				outputStreamForAVC.write(dataBytes);
@@ -112,7 +116,7 @@ public class FreeConvoy extends BaseClass
 	    	     {
 					
 	    	    	 ExplicitWait(By.name("Vehicle pending in queue - 0"));
-	    	    	 SetProfilerImage d= new SetProfilerImage(VClassForFrCnvy[randomFreeConvoy]);
+	    	    	 SetProfilerImage d= new SetProfilerImage(LastClass);
 	    	     }
 	    	     catch(TimeoutException e)
 	    	     {
@@ -124,7 +128,10 @@ public class FreeConvoy extends BaseClass
 	    	    	 SetProfilerImage d= new SetProfilerImage(VClassForFrCnvy[randomFreeConvoy]);
 
 	    	     }
-//		        i= new ImageVerification();
+		        i= new ImageVerification();
+		        logger.info("Last Clss is:"+LastClass);
+				SetProfilerImage s = new SetProfilerImage(LastClass);
+		        driver.getKeyboard().sendKeys(Keys.chord(Keys.CONTROL,Keys.END));
 		        driver.getKeyboard().sendKeys(Keys.chord(Keys.SHIFT,Keys.DELETE));
 				driver.findElementByName("Yes").click();
 		}
@@ -225,6 +232,7 @@ public class FreeConvoy extends BaseClass
 					System.out.println(VClassForFrCnvy[randomFreeConvoy]+" rrrrrrrr");
 					twodigits = new DecimalFormat("00");
 				    AVCCLASS="";
+				    
 					for(int j=1;j<VClassForFrCnvy.length;j++)
 					{
 
@@ -234,6 +242,7 @@ public class FreeConvoy extends BaseClass
 						{
 
 							AVCCLASS=AVCRandom;
+							LastClass=VClassForFrCnvy[j];
 							break;
 						}
 						
@@ -275,7 +284,9 @@ public class FreeConvoy extends BaseClass
 					
 					
 				}
-			
+				i = new ImageVerification();
+				logger.info("Last Clss is:"+LastClass);
+				SetProfilerImage s = new SetProfilerImage(LastClass);
 				driver.getKeyboard().sendKeys(Keys.chord(Keys.SHIFT,Keys.DELETE));
 				driver.findElementByName("Yes").click();
 		}

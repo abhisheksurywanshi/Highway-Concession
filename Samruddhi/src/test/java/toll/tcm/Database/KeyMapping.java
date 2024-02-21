@@ -15,6 +15,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import toll.tcm.testCases.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.reporters.jq.Main;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -24,6 +27,8 @@ import com.google.common.collect.Multimap;
 public class KeyMapping extends BaseClass
 	
 {	
+	static Logger logger=LogManager.getLogger(KeyMapping.class);
+
 	public Map<String, String> itemList = new HashMap<String, String>();
 	public Multimap<String, String> itemMultiMap =  ArrayListMultimap.create();
     public Map<String, String> getItemList() {
@@ -136,7 +141,7 @@ public class KeyMapping extends BaseClass
 	       Integer[] ToWeightarray = ToWeight.toArray(new Integer[0]);
 	       IsOverWeightApplicable=Is_OverWeight_Applicable.isOverWeightApplicable();
 	       keysArrayForIsOverWeightApplicable=Is_OverWeight_Applicable.isOverWeightApplicable().keySet().toArray(new String[0]);
-	       System.out.println("Done=======");
+//	       System.out.println("Done=======");
 	       GetExemptType.ClassesIsCaptureFlags();
 //	       GetExemptType.ClassesIsExemptRemarkFlags();
 	       paymentTypes=GetPaymentTypes.getPaymentTypes();

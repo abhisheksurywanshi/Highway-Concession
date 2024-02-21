@@ -1,4 +1,0 @@
-/target/
-/Configuration/
-/Screenshots/
-/logs/

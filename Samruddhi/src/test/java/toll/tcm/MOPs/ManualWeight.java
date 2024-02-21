@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
@@ -22,6 +24,8 @@ import toll.tcm.utilities.SelectRandomSubClass;
 
 public class ManualWeight extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(ManualWeight.class);
+
 	public static void manualWeightTransaction(int Weight) throws Exception
 	{
 		manualInsertWeight(Weight);

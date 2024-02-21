@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -16,6 +18,8 @@ import toll.tcm.utilities.*;
 import toll.tcm.APIs.*;
 public class ManualTagPunch extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(ManualTagPunch.class);
+
 	public static void main(String[] args) throws IOException {
 //		for(String a:GetManualTagPunchVRN()) 
 //		{

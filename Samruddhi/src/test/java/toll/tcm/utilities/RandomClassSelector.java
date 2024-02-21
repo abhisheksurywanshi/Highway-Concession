@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,6 +18,7 @@ import toll.tcm.MOPs.ExemptTransaction;
 import toll.tcm.testCases.*;
 public class RandomClassSelector extends BaseClass{
 	
+	static Logger logger=LogManager.getLogger(RandomClassSelector.class);
 
 	public static void main(String[] args) throws SQLException, AWTException {
 		
@@ -27,7 +30,7 @@ public class RandomClassSelector extends BaseClass{
 	{
 	
 		String[] keysArray = SchedualClassTypes.keySet().toArray(new String[0]);
-		System.out.println(SchedualClassType);
+//		System.out.println(SchedualClassType);
 		Robot robot = new Robot();
 		int RandomSV=randomGenerator(0, SchedualClassType-1);
 		String key = keysArray[RandomSV];
@@ -104,7 +107,7 @@ public class RandomClassSelector extends BaseClass{
 	public static void randomExemptTypeSelector(String VClass)
 	{
 		int ExemptmaxSelection =ExemptTransaction.ExemptTypeFinder(VClass);
-		System.out.println(ExemptmaxSelection);
+		logger.info("Max Selection allow:"+ExemptmaxSelection);
 		if(ExemptmaxSelection==0)
 		{
 			logger.warn("Class is may be null please check selected class:"+VClass);

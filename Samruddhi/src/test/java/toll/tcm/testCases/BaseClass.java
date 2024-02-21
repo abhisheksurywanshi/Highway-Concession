@@ -80,6 +80,7 @@ import toll.tcm.APIs.GetBlacklistTag;
 import toll.tcm.Database.DatabaseConnectivity;
 import toll.tcm.Database.GetExemptType;
 import toll.tcm.Database.GetWimSubClass;
+import toll.tcm.Hardware.COM_Setup;
 import toll.tcm.utilities.ReadConfig;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -101,7 +102,7 @@ import com.fazecast.jSerialComm.*;
 
 public class BaseClass extends StaticVariables
 {	
-	
+	static Logger logger=LogManager.getLogger(BaseClass.class);
 //	@Parameters("browser")
 	@BeforeSuite
 	public void getdataBaseData() throws Exception
@@ -120,11 +121,8 @@ public class BaseClass extends StaticVariables
 		connection = DriverManager.getConnection(DataBaseurl, DatBaseusername, DatBasepassword);
 		 DatabaseConnectivity.pass("Database Connected Successfully");
 //		 GetBlacklistTag g= new GetBlacklistTag();
-		 logger=LogManager.getLogger(BaseClass.class);
-		 logger=LogManager.getLogger(BaseClass.class);
-		 
 		
-		logger=LogManager.getLogger(BaseClass.class);
+
 	    DatabaseConnectivity d= new DatabaseConnectivity();
 	    
 			d.getTollInfo();
@@ -180,7 +178,7 @@ public class BaseClass extends StaticVariables
 	        DatabaseConnectivity.info("lane ip:"+LaneIPAddress+" Port "+Port);	
 			capabilities.setCapability("app", url);
 //			capabilities.setCapability("appTopLevelWindow", "Enter  Remark Here...");
-			 System.out.println("capabilities set");	
+//			 System.out.println("capabilities set");	
 			Thread.sleep(5000);
 			try 
 			{
@@ -197,7 +195,7 @@ public class BaseClass extends StaticVariables
 	
 	
 	@BeforeTest
-	public void login() throws InterruptedException, IOException, AWTException
+	public void login() throws Exception
 	{
 		ExtentTest login=extent.createTest("login");
 		boolean HardwareChangeFound=false;
@@ -348,9 +346,25 @@ public class BaseClass extends StaticVariables
 				{
 					
 						capabilities.setCapability("app", url);
-						driver=new WindowsDriver(new URL("http://127.0.0.1:4723"),capabilities);
-						ExplicitWait(By.name("Waiting for New transaction"));
-						logger.info("catch block for waiting for trasaction element");
+						driver=new WindowsDriver(new URL("http://127.0.0.1:4723"),capabilities);   //AVC Profiler stopped to working,Can't Login
+						try 
+						{
+							ExplicitWait(By.name("Waiting for New transaction"));
+							logger.info("catch block for waiting for trasaction element");
+						}catch(org.openqa.selenium.TimeoutException h)
+						{
+							logger.info("catch block for avc disconnect popup");
+							ExplicitWait(By.name("AVC Profiler stopped to working,Can't Login"));
+							
+							driver.findElementByName("OK").click();
+							COM_Setup c=new COM_Setup();
+							driver.findElementByAccessibilityId("txtUserID").sendKeys(username);
+							driver.findElementByAccessibilityId("txtPassword").sendKeys(password);
+							driver.getKeyboard().sendKeys(Keys.ENTER);
+							ExplicitWait(By.name("Waiting for New transaction"));
+							ExplicitWait(By.name("Last Wait for Waiting for New transaction"));
+						}
+						
 					
 				}
 				logger.info("ETC IP port connecting");

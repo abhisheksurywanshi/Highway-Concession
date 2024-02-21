@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -15,6 +17,8 @@ import toll.tcm.testCases.*;
 import toll.tcm.utilities.*;
 public class NSV extends BaseClass
 {
+	static Logger logger=LogManager.getLogger(NSV.class);
+
 	public static void getNonSchedualVehicleKey() throws SQLException, AWTException, IOException, InterruptedException
 	{
 		GetAVCData getdata=new GetAVCData();
@@ -22,9 +26,9 @@ public class NSV extends BaseClass
 		String[] keysArray = NonSchedualClassTypes.keySet().toArray(new String[0]);
 		Robot robot = new Robot();
 		int RandomSV=randomGenerator(0, NonSchedualClassType-1);
-		System.out.println(NonSchedualClassType+"uyu");
+//		System.out.println(NonSchedualClassType+"uyu");
 		String key = keysArray[RandomSV];
-		System.out.println(key+"====");
+//		System.out.println(key+"====");
 		int RandomSVIntgerForm=Integer.parseInt(key);
 		robot.keyPress(RandomSVIntgerForm);
         robot.keyRelease(RandomSVIntgerForm);
@@ -36,11 +40,12 @@ public class NSV extends BaseClass
 	    logger.info("Barrier Up Time");
 	    ExplicitWait(By.name("Vehicle pending in queue - 1"));
 	    logger.info("Vclass is:"+Vclass);
-//	    PC_Send obj1=new PC_Send();
+	    PC_Send obj1=new PC_Send();
+	    logger.info("PC Send Time");
 //	    ExplicitWait(By.xpath("//Pane[@Name='Shift Reamaining Time'][@AutomationId='picTL']"));
 //	    COM_Setup.IPAVCSetup99(Vclass);
-//	    COM_Setup.COMAVCSetup99();
-	    outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
+	    COM_Setup.COMAVCSetup99();
+//	    outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
     	logger.info(getdata.getAVCData(Vclass)+" :outputstream ");
 //    	outputStreamForAVC.write(getdata.getAVCData(Vclass).getBytes());
     	logger.info("Barrier down Time");

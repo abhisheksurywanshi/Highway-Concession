@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.google.common.collect.ArrayListMultimap;
@@ -25,7 +28,7 @@ import toll.tcm.testCases.BaseClass;
 public class DatabaseConnectivity extends BaseClass
 {
 	
-	
+	static Logger logger=LogManager.getLogger(DatabaseConnectivity.class);
 	public static ArrayList getAllLanes() throws SQLException
 	{
 		ArrayList <String>AllLanes=new ArrayList<String>();
@@ -170,7 +173,7 @@ public class DatabaseConnectivity extends BaseClass
 		 getTollInfo.info("Is_Card_ref:"+Is_Card_Ref);
 		 FastagVehicleMaster=GetFastagVehicleMaster.getFastagVehicleMaster();
 		 GetOperatorList=getOperatorDetails();
-		 System.out.println(GetOperatorList);
+//		 System.out.println(GetOperatorList);
 		 ETCAutoLoginCheck e=new ETCAutoLoginCheck();
 	}
 	

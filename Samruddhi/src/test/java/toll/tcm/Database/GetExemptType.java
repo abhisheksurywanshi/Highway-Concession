@@ -12,12 +12,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.aventstack.extentreports.ExtentTest;
 
 import toll.tcm.testCases.*;
 
 public class GetExemptType extends BaseClass{
-	
+	static Logger logger=LogManager.getLogger(GetExemptType.class);
+
 	public static String getExemptTypeFromExcel(String Exempt_Type_Id) throws SQLException {
 //		DataBaseurl = "jdbc:oracle:thin:@"+LaneIPAddress+":1521:XE"; // Replace with your database URL
 //		DatBaseusername = XEUsername; // Replace with your username1

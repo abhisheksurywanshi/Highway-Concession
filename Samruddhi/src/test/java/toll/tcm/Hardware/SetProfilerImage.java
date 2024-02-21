@@ -11,10 +11,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 import toll.tcm.testCases.BaseClass;
 public class SetProfilerImage extends BaseClass{
+	static Logger logger=LogManager.getLogger(SetProfilerImage.class);
 
 	public SetProfilerImage(String Class) throws InterruptedException, SQLException {
 //		String timeStamp=new SimpleDateFormat("yyMMddHHmmss").format(new Date());
@@ -73,7 +76,7 @@ public class SetProfilerImage extends BaseClass{
        
         
         // Specify the new name for the image IMG01_"+timeStamp+"_"+Class+".png
-        System.out.println("----"+LastTransaction);
+        logger.info("current transaction----"+LastTransaction);
         String sql="select a.extra8 from lane_transaction_avc a,lane_transaction_tlc t where t.transaction_tlc_id='"+LastTransaction+"' and t.transaction_tlc_id=a.transaction_tlc_id";
 		Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
@@ -91,7 +94,7 @@ public class SetProfilerImage extends BaseClass{
         }
         
         String newFileName = "IMG01_"+timeStamp+"_"+code+".png";
-        System.out.println("file name: "+newFileName);
+        logger.info("profiler image file name: "+newFileName);
         try {
             // Resolve the destination file path
             Path destinationFilePath = destinationFolder.resolve(newFileName);
@@ -99,13 +102,13 @@ public class SetProfilerImage extends BaseClass{
             // Move and rename the file
             Files.copy(sourceFilePath, destinationFilePath, StandardCopyOption.REPLACE_EXISTING);
 
-            System.out.println("Image moved and renamed successfully.");
+           logger.info("Image moved and renamed successfully.");
         } catch (Exception e) {
-        	System.out.println("profiler image is not generated");
+        	logger.info("profiler image is not generated");
             e.printStackTrace();
         }
         File file_prof = new File("D:\\Share_Files\\Images\\"+newFileName);
-        System.out.println(file_prof);
+        logger.info(file_prof);
         boolean exist=true;
         boolean firstAttempt=false;
         int attempt=1;
@@ -119,17 +122,17 @@ public class SetProfilerImage extends BaseClass{
             		else
             		{
             			exist=false;
-            			logger.warn("Image is  not exist: "+attempt);
+            			logger.info("Image is  not exist: "+attempt);
             		}
         	if(attempt==1)
             {
-            	System.out.println(firstAttempt+" 1");
+            	logger.info("First Attempt to find image:"+firstAttempt+" 1");
             }
             
             attempt++;
             if(attempt>100000)
             {
-            	logger.info("failed to find image ");
+            	logger.warn("failed to find image ");
             	break;
             }
             } 

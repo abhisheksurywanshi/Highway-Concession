@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import toll.tcm.testCases.*;
 //CAR/JEEP LCV/Mini Bus BUS TRUCK MAV 3 Axle
 public class GetAVCData  extends BaseClass{
 
-
+	static Logger logger=LogManager.getLogger(GetAVCData.class);
 	public static  String getAVCData(String returnVehicleClass)
 	{
 		
