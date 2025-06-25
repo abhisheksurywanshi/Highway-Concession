@@ -27,7 +27,6 @@ import toll.tcm.testCases.BaseClass;
 
 public class DatabaseConnectivity extends BaseClass
 {
-	
 	static Logger logger=LogManager.getLogger(DatabaseConnectivity.class);
 	public static ArrayList getAllLanes() throws SQLException
 	{
