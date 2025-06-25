@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-27T10:45:54 IST" name="Default suite" finished-at="2025-03-27T10:48:39 IST" duration-ms="164998">
+    <groups>
+    </groups>
+    <test started-at="2025-03-27T10:45:54 IST" name="Default test" finished-at="2025-03-27T10:48:39 IST" duration-ms="164998">
+      <class name="toll.tcm.testCases.Transaction">
+        <test-method is-config="true" signature="getdataBaseData()[pri:0, instance:toll.tcm.testCases.Transaction[frame0,0,0,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" started-at="2025-03-27T10:45:49 IST" name="getdataBaseData" finished-at="2025-03-27T10:45:54 IST" duration-ms="5586" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getdataBaseData -->
+        <test-method is-config="true" signature="login()[pri:0, instance:toll.tcm.testCases.Transaction[frame0,0,0,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" started-at="2025-03-27T10:45:54 IST" name="login" finished-at="2025-03-27T10:46:25 IST" duration-ms="30247" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="main()[pri:0, instance:toll.tcm.testCases.Transaction[frame0,0,0,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" started-at="2025-03-27T10:46:25 IST" name="main" finished-at="2025-03-27T10:48:29 IST" duration-ms="124001" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- main -->
+        <test-method is-config="true" signature="close()[pri:0, instance:toll.tcm.testCases.Transaction[frame0,0,0,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" started-at="2025-03-27T10:48:29 IST" name="close" finished-at="2025-03-27T10:48:39 IST" duration-ms="10664" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="otherClose()[pri:0, instance:toll.tcm.testCases.Transaction[frame0,0,0,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]]" started-at="2025-03-27T10:48:40 IST" name="otherClose" finished-at="2025-03-27T10:48:41 IST" duration-ms="1228" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- otherClose -->
+      </class> <!-- toll.tcm.testCases.Transaction -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

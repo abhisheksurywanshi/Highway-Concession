@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="a">
+	<listeners>
+	<listener class-name="toll.tcm.utilities.Reporting"/>
+	</listeners>
+	<test name="main">
+	<!--  <parameter name="browser" value="chrome"/>-->
+	<classes>
+	<!--<class name="com.cch.pos.testCases.TC_LoginTest_001"/>-->
+	  <!--<class name="com.cch.pos.testCases.Demo"/>-->
+	<class name="toll.tcm.testCases.Transaction"/>
+	<!--  <class name="toll.snc.tcm.utilities.TC_CreateAccount_01"/>-->
+	</classes>
+	</test>
+</suite>
